@@ -156,12 +156,16 @@
         <tbody>
           @foreach($datas as $data)
           <tr>
-            <td>{{$data->property_id}}</td>
-            <td></td>
-            <td>{{$data->name}}</td>
-            <td>{{$data->category}}</td>
+            <td>{{$data->properties_id}}</td>
+            <td><img src="{{ asset('storage/images/properties/' . $data->image) }}" alt="Image"></td>
+            <td>{{$data->nama}}</td>
+            <td>{{$data->kategori->nama_kategori}}</td>
             <td>{{$data->status}}</td>
-            <td>{{$data->action}}</td>
+            <td>
+              <a href="/admin/properties/edit" class="button blue"><span class="mdi mdi-pencil"></span></a>
+              <a href="/admin/properties/delete" class="button red"><span class="mdi mdi-delete-empty"></span></span></a>
+              <a href="/admin/properties/delete" class="button green"><span class="mdi mdi-eye-circle"></span></span></span></a>
+            </td>
           </tr>
           @endforeach
         </tbody>

@@ -78,11 +78,11 @@ class PosController extends Controller
     {
         // Validasi input dari request
         $request->validate([
-            'agen_id' => 'required|exists:agens,agen_id',  // Pastikan agen_id ada di tabel agens
-            'kategori_id' => 'required|exists:kategoris,id',  // Pastikan kategori_id ada di tabel kategoris
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file image
-            'name' => 'required|string|max:255',
-            'harga' => 'required|integer',
+            'image' => 'required|image',
+            'agen_id' => 'required',
+            'kategori_id' => 'required',
+            'nama' => 'required|string|max:255',
+            'harga' => 'required|numeric',
             'deskripsi' => 'nullable|string',
             'status' => 'required',
         ]);
@@ -95,7 +95,7 @@ class PosController extends Controller
             'agen_id' => $request->agen_id,
             'kategori_id' => $request->kategori_id,
             'image' => $imagePath,
-            'name' => $request->nama,
+            'nama' => $request->nama,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
             'status' => $request->status,

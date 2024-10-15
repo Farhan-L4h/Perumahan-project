@@ -146,21 +146,14 @@
           <li>Admin</li>
           <li>Forms Properties</li>
         </ul>
-        <a href="https://justboil.me/" onclick="alert('Coming soon'); return false" target="_blank" class="button blue">
+        <a href="/admin" class="button blue">
           <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-          <span>Premium Demo</span>
+          <span>Back</span>
         </a>
       </div>
     </section>
 
-    <section class="is-hero-bar">
-      <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <h1 class="title">
-          Forms Properties
-        </h1>
-        <button class="button light">Button</button>
-      </div>
-    </section>
+   
 
     <section class="section main-section">
       <div class="card mb-6">
@@ -171,7 +164,16 @@
           </p>
         </header>
         <div class="card-content">
-          <form method="post" action="{{route('properties.store')}}" enctype="multipart/form-data">
+          @if ($errors->any())
+              <div class="notification is-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+          <form method="post" action="{{ route('admin.properties.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="field">
               <label class="label">Upload Foto</label>
@@ -191,29 +193,29 @@
                     @endforeach
                   </select>
                 </div>
-                <span class="icon left"><i class="mdi mdi-account"></i></span>
+                <span class="icon left"><i class="mdi mdi-account-box"></i></span>
               </div>
             </div>
 
-            <!-- Tambahkan Dropdown untuk Kategori -->
             <div class="field">
               <label class="label">Kategori</label>
               <div class="control icons-left">
                 <div class="select">
                   <select name="kategori_id">
+                    <option>Select</option>
                     @foreach($kategoris as $kategori)
-                    <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                    <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
                     @endforeach
                   </select>
                 </div>
-                <span class="icon left"><i class="mdi mdi-folder"></i></span>
+                <span class="icon left"><i class="mdi mdi-archive"></i></span>
               </div>
             </div>
 
             <div class="field">
               <label class="label">Judul Properti</label>
               <div class="control icons-left">
-                <input class="input" type="text" name="name" placeholder="Judul Properti">
+                <input class="input" type="text" name="nama" placeholder="Judul Properti">
                 <span class="icon left"><i class="mdi mdi-text"></i></span>
               </div>
             </div>
@@ -222,13 +224,13 @@
               <label class="label">Harga</label>
               <div class="control icons-left">
                 <input class="input" type="number" name="harga" placeholder="Harga">
-                <span class="icon left"><i class="mdi mdi-calculator"></i></span>
+                <span class="icon left"><i class="mdi mdi-tag"></i></span>
               </div>
             </div>
 
             <div class="field">
               <label class="label">Deskripsi</label>
-              <div class="control ">
+              <div class="control">
                 <textarea class="textarea" placeholder="Deskripsi" name="deskripsi"></textarea>
               </div>
             </div>
@@ -236,12 +238,14 @@
             <div class="field">
               <label class="label">Status</label>
               <div class="control icons-left">
-                <select class="input" name="status">
-                  <option value="disewa">Disewa</option>
-                  <option value="dijual">Dijual</option>
-                  <option value="tersedia">Tersedia</option>
-                  <option value="tidak tersedia">Tidak Tersedia</option>
-                </select>
+                <div class="select">
+                  <select name="status">
+                    <option value="disewa">Disewa</option>
+                    <option value="dijual">Dijual</option>
+                    <option value="tersedia">Tersedia</option>
+                    <option value="tidak tersedia">Tidak Tersedia</option>
+                  </select>
+                </div>
                 <span class="icon left"><i class="mdi mdi-file-document"></i></span>
               </div>
             </div>
@@ -264,9 +268,6 @@
   </div>
 
   @endsection
-  <!-- Scripts below are for demo only -->
-  <script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
-
 
   <script>
     ! function(f, b, e, v, n, t, s) {
