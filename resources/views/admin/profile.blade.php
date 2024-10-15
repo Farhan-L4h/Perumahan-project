@@ -71,7 +71,7 @@
           </span>
         </a>
         <div class="navbar-dropdown">
-          <a href="/admin/profile" class="navbar-item">
+          <a href="/profile-admin" class="navbar-item">
             <span class="icon"><i class="mdi mdi-account"></i></span>
             <span>My Profile</span>
           </a>
@@ -99,7 +99,7 @@
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">
-          <a href="/admin/profile" class="navbar-item active">
+          <a href="/profile-admin" class="navbar-item active">
             <span class="icon"><i class="mdi mdi-account"></i></span>
             <span>My Profile</span>
           </a>
@@ -144,7 +144,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="--set-active-index-html">
-        <a href="/admin/index">
+        <a href="/">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label">Dashboard</span>
         </a>
@@ -153,13 +153,13 @@
     <p class="menu-label">Examples</p>
     <ul class="menu-list">
       <li class="--set-active-tables-html">
-        <a href="/admin/tables">
+        <a href="/admin/table">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label">Tables</span>
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <a href="/admin/forms">
+        <a href="/admin/form">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
           <span class="menu-item-label">Forms</span>
         </a>
@@ -171,7 +171,7 @@
         </a>
       </li>
       <li>
-        <a href="/admin/login">
+        <a href="/login">
           <span class="icon"><i class="mdi mdi-lock"></i></span>
           <span class="menu-item-label">Login</span>
         </a>
@@ -261,7 +261,7 @@
                     <a class="button blue">
                       Upload
                     </a>
-                    <input type="file">
+                    <input type="file" name="image">
                   </label>
                 </div>
               </div>
@@ -272,23 +272,53 @@
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <input type="text" autocomplete="on" name="name" value="John Doe" class="input" required>
+                    <input type="text" autocomplete="on" name="name" value="Masukkan nama" class="input" required>
                   </div>
                   <p class="help">Required. Your name</p>
                 </div>
               </div>
             </div>
+
             <div class="field">
               <label class="label">E-mail</label>
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <input type="email" autocomplete="on" name="email" value="user@example.com" class="input" required>
+                    <input type="email" autocomplete="on" name="email" value="masukkan email" class="input" required>
                   </div>
                   <p class="help">Required. Your e-mail</p>
                 </div>
               </div>
             </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input type="password" autocomplete="on" name="password" value="" class="input" required>
+                  </div>
+                  <p class="help">Required.   </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Level</label>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <select name="level" class="input" required>
+                      <option value="">Pilih Level</option>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                  <p class="help">Required. Pilih level Anda</p>
+                </div>
+              </div>
+            </div>
+
             <hr>
             <div class="field">
               <div class="control">
@@ -309,20 +339,20 @@
         </header>
         <div class="card-content">
           <div class="image w-48 h-48 mx-auto">
-            <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
-          </div>
+            <img src="https://i.pinimg.com/736x/2f/ac/99/2fac993963c8837a45c4076f8067951a.jpg" alt="John Doe" class="rounded-full">
+          </div>Sosok asli
           <hr>
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input type="text" readonly value="John Doe" class="input is-static">
+              <input type="text" readonly value="farhan kino" class="input is-static">
             </div>
           </div>
           <hr>
           <div class="field">
             <label class="label">E-mail</label>
             <div class="control">
-              <input type="text" readonly value="user@example.com" class="input is-static">
+              <input type="text" readonly value="pemain@gmail.com" class="input is-static">
             </div>
           </div>
         </div>
