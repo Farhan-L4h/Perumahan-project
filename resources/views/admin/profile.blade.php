@@ -254,7 +254,7 @@
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input type="text" readonly value="{{users->name}}" class="input is-static">
+              <input type="text" readonly value="{{ $users->name }}" class="input is-static">
             </div>
           </div>
           <hr>

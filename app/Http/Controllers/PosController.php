@@ -49,7 +49,7 @@ class PosController extends Controller
     public function profile_admin()
     {
         $users = User::all();
-        return view('admin.profile', compact('users'));
+        return view('admin.profile', compact('users')); // Pastikan 'users' sudah didefinisikan
     }
     public function tables()
     {
