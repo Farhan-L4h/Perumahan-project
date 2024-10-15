@@ -161,7 +161,7 @@
       <li class="active">
         <a href="/admin/forms">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label">Forms</span>
+          <span class="menu-item-label">Forms Properties</span>
         </a>
       </li>
       <li class="--set-active-profile-html">
@@ -224,7 +224,7 @@
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
     <ul>
       <li>Admin</li>
-      <li>Forms</li>
+      <li>Forms Properties</li>
     </ul>
     <a href="https://justboil.me/" onclick="alert('Coming soon'); return false" target="_blank" class="button blue">
       <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
@@ -236,7 +236,7 @@
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
     <h1 class="title">
-      Forms
+      Forms Properties
     </h1>
     <button class="button light">Button</button>
   </div>
@@ -257,64 +257,45 @@
             <div class="field-body">
               <div class="field">
                 <div class="control icons-left">
-                  <input class="input" type="text" placeholder="Name">
-                  <span class="icon left"><i class="mdi mdi-account"></i></span>
+                  <input class="input" type="file" name="image" placeholder="Upload Foto">
+                  <span class="icon left"><i class="mdi mdi-camera"></i></span>
                 </div>
               </div>
+              
               <div class="field">
-                <div class="control icons-left icons-right">
-                  <input class="input" type="email" placeholder="Email" value="alex@smith.com">
-                  <span class="icon left"><i class="mdi mdi-mail"></i></span>
-                  <span class="icon right"><i class="mdi mdi-check"></i></span>
+                <div class="control icons-left">
+                  <input class="input" type="text" name="nama" placeholder="Judul">
+                  <span class="icon left"><i class="mdi mdi-text"></i></span>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class="field-body">
+
               <div class="field">
-                <div class="field addons">
-                  <div class="control">
-                    <input class="input" value="+44" size="3" readonly>
-                  </div>
-                  <div class="control expanded">
-                    <input class="input" type="tel" placeholder="Your phone number">
-                  </div>
+                <div class="control icons-left">
+                  <input class="input" type="text" name="harga" placeholder="Harga">
+                  <span class="icon left"><i class="mdi mdi-calculator"></i></span>
                 </div>
-                <p class="help">Do not enter the first zero</p>
               </div>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Department</label>
-            <div class="control">
-              <div class="select">
-                <select>
-                  <option>Business development</option>
-                  <option>Marketing</option>
-                  <option>Sales</option>
-                </select>
+
+              <div class="field">
+                <label class="label">Deskripsi</label>
+                <div class="control ">
+                  <textarea class="textarea" placeholder="Deskripsi" name="deskripsi"></textarea>
+                </div>
               </div>
-            </div>
-          </div>
-          <hr>
-          <div class="field">
-            <label class="label">Subject</label>
 
-            <div class="control">
-              <input class="input" type="text" placeholder="e.g. Partnership opportunity">
-            </div>
-            <p class="help">
-              This field is required
-            </p>
-          </div>
+              <div class="field">
+                <div class="control icons-left">
+                  <select class="input" name="status">
+                    <option value="disewa">Disewa</option>
+                    <option value="dijual">Dijual</option>
+                    <option value="tersedia">Tersedia</option>
+                    <option value="tidak tersed">Tidak Tersedia</option>
+                  </select>
+                  <span class="icon left"><i class="mdi mdi-file-document"></i></span>
+                </div>
+              </div>
 
-          <div class="field">
-            <label class="label">Question</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-            </div>
-          </div>
+              
           <hr>
 
           <div class="field grouped">
@@ -333,91 +314,7 @@
       </div>
     </div>
 
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          <span class="icon"><i class="mdi mdi-ballot-outline"></i></span>
-          Custom elements
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="field">
-          <label class="label">Checkbox</label>
-          <div class="field-body">
-            <div class="field grouped multiline">
-              <div class="control">
-                <label class="checkbox"><input type="checkbox" value="lorem" checked>
-                  <span class="check"></span>
-                  <span class="control-label">Lorem</span>
-                </label>
-              </div>
-              <div class="control">
-                <label class="checkbox"><input type="checkbox" value="ipsum">
-                  <span class="check"></span>
-                  <span class="control-label">Ipsum</span>
-                </label>
-              </div>
-              <div class="control">
-                <label class="checkbox"><input type="checkbox" value="dolore">
-                  <span class="check is-primary"></span>
-                  <span class="control-label">Dolore</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">Radio</label>
-          <div class="field-body">
-            <div class="field grouped multiline">
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="sample-radio" value="one" checked>
-                  <span class="check"></span>
-                  <span class="control-label">One</span>
-                </label>
-              </div>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="sample-radio" value="two">
-                  <span class="check"></span>
-                  <span class="control-label">Two</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">Switch</label>
-          <div class="field-body">
-            <div class="field">
-              <label class="switch">
-                <input type="checkbox" value="false">
-                <span class="check"></span>
-                <span class="control-label">Default</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">File</label>
-          <div class="field-body">
-            <div class="field file">
-              <label class="upload control">
-                <a class="button blue">
-                  Upload
-                </a>
-                <input type="file">
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    
 
 
 <footer class="footer">
