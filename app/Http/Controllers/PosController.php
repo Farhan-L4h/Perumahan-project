@@ -44,8 +44,12 @@ class PosController extends Controller
         return view('admin.profile', compact('users'));
     }
     public function table() {
-        $datas = properties::all();
-        return view('admin.tables', compact('datas'));
+        
+        return view('admin.tables');
+    }
+    public function form() {
+        
+        return view('admin.forms');
     }
 
     /**
