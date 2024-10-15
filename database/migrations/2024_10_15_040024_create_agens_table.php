@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('agens', function (Blueprint $table) {
             $table->id('agen_id');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('name');
             $table->string('username');
             $table->string('contact');
