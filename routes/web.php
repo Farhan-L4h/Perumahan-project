@@ -28,3 +28,24 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('user/contact');
 });
+
+
+Route::get('/admin/index', function () {
+    return view('admin/index');
+});
+
+Route::get('/admin/forms', function () {
+    return view('admin/forms');
+});
+
+Route::get('/admin/tables', function () {
+    return view('admin/tables');
+});
+
+Route::get('/admin/login', function () {
+    return view('admin/login');
+});
+
+Route::get('/admin/profile', function () {
+    return view('admin/profile');
+});
