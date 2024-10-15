@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\properties;
+
+
 use Illuminate\Http\Request;
 
 class PosController extends Controller
@@ -11,7 +15,8 @@ class PosController extends Controller
      */
     public function index()
     {
-        return view('user/index');
+        $datas = properties::all();
+        return view('user/index', compact('datas'));
     }
     public function property()
     {
@@ -28,6 +33,19 @@ class PosController extends Controller
     public function contact()
     {
         return view('user/contact');
+    }
+
+    //Admin
+
+    
+
+    public function profile_admin() {
+        $users = User::all();
+        return view('admin.profile', compact('users'));
+    }
+    public function table() {
+        $datas = properties::all();
+        return view('admin.tables', compact('datas'));
     }
 
     /**

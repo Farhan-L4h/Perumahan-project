@@ -41,23 +41,13 @@ Route::prefix('user')->group(function () {
 });
 
 
-
-Route::get('/admin/index', function () {
-    return view('admin/index');
-});
-
-Route::get('/admin/forms', function () {
-    return view('admin/forms');
-});
-
-Route::get('/admin/tables', function () {
-    return view('admin/tables');
-});
-
-Route::get('/admin/login', function () {
+Route::get('/login', function () {
     return view('admin/login');
 });
 
-Route::get('/admin/profile', function () {
-    return view('admin/profile');
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {return view('admin/index');});
+    Route::get('/form', [PosController::class, 'form']);
+    Route::get('/table', [PosController::class, 'tables']);
+    Route::get('/profile', [PosController::class, 'profile_admin']);
 });
