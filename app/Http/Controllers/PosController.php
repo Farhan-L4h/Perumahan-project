@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\agen;
+use App\Models\kategori;
 use App\Models\User;
 use App\Models\properties;
 
@@ -37,19 +39,28 @@ class PosController extends Controller
 
     //Admin
 
-    
 
-    public function profile_admin() {
+
+    public function admin()
+    {
+        $datas = properties::all();
+        return view('admin.tables', compact('datas'));
+    }
+    public function profile_admin()
+    {
         $users = User::all();
         return view('admin.profile', compact('users'));
     }
-    public function table() {
-        
-        return view('admin.tables');
+    public function tables()
+    {
+        $datas = properties::all();
+        return view('admin.tables', compact('datas'));
     }
-    public function form() {
-        
-        return view('admin.forms');
+    public function form()
+    {
+        $agens = agen::all();
+        $kategoris = kategori::all();
+        return view('admin.forms', compact('agens', 'kategoris'));
     }
 
     /**
@@ -65,7 +76,33 @@ class PosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input dari request
+        $request->validate([
+            'agen_id' => 'required|exists:agens,agen_id',  // Pastikan agen_id ada di tabel agens
+            'kategori_id' => 'required|exists:kategoris,id',  // Pastikan kategori_id ada di tabel kategoris
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file image
+            'name' => 'required|string|max:255',
+            'harga' => 'required|integer',
+            'deskripsi' => 'nullable|string',
+            'status' => 'required',
+        ]);
+
+        // Upload gambar
+        $imagePath = $request->file('image')->store('images/properties', 'public');
+
+        // Simpan data ke database
+        $property = Properties::create([
+            'agen_id' => $request->agen_id,
+            'kategori_id' => $request->kategori_id,
+            'image' => $imagePath,
+            'name' => $request->nama,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'status' => $request->status,
+        ]);
+
+        // Kembalikan response sukses atau redirect
+        return redirect()->route('admin.index')->with('success', 'Property berhasil ditambahkan!');
     }
 
     /**

@@ -46,8 +46,9 @@ Route::get('/login', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {return view('admin/index');});
+    Route::get('/', [PosController::class, 'admin']);
+    Route::post('/properties/store', [PosController::class, 'store'])->name('properties.store');
     Route::get('/form', [PosController::class, 'form']);
-    Route::get('/table', [PosController::class, 'tables']);
+    Route::get('/tables', [PosController::class, 'tables']);
     Route::get('/profile', [PosController::class, 'profile_admin']);
 });

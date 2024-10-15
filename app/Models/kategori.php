@@ -7,14 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategori extends Model
 {
-    use HasFactory;
-
-    protected $table = 'kategori';
-
-    protected $fillable = [
-        'nama_kategori',
-        'deskripsi',
-    ];
+    protected $table = 'kategoris';  // Pastikan ini sesuai dengan tabel di database
 
     public function properties()
     {
