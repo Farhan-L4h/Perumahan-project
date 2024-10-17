@@ -51,4 +51,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/form', [PosController::class, 'form']);
     Route::get('/tables', [PosController::class, 'tables']);
     Route::get('/profile', [PosController::class, 'profile_admin']);
+    Route::get('/properties/show/{id}', [PosController::class, 'show_pro']);
+    Route::get('/properties/edit/{id}', [PosController::class, 'edit_pro']);
+    Route::get('/properties/delete/{id}', [PosController::class, 'delete_pro']);
 });

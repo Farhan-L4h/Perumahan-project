@@ -20,7 +20,13 @@ class properties extends Model
         'nama',
         'harga',
         'deskripsi',
-        'status'
+        'status',
+        'luas_bangunan',
+        'luas_tanah',
+        'fasilitas',
+        'alamat',
+        'kamar_tidur',
+        'kamar_mandi',
     ];
 
     public function agen()

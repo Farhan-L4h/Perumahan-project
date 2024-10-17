@@ -202,7 +202,7 @@
               <div class="control icons-left">
                 <div class="select">
                   <select name="kategori_id">
-                    <option>Select</option>
+                    <option selected>Select</option>
                     @foreach($kategoris as $kategori)
                     <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
                     @endforeach
@@ -247,6 +247,55 @@
                   </select>
                 </div>
                 <span class="icon left"><i class="mdi mdi-file-document"></i></span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Luas Tanah</label>
+              <div class="control icons-left">
+                <input class="input" type="text" name="luas_tanah" placeholder="Luas Tanah">
+                <span class="icon left"><i class="mdi mdi-ruler"></i></span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Luas Bangunan</label>
+              <div class="control icons-left">
+                <input class="input" type="text" name="luas_bangunan" placeholder="Luas Bangunan">
+                <span class="icon left"><i class="mdi mdi-ruler"></i></span>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Fasilitas</label>
+              <div class="control icons-left">
+                <input class="input" type="text" name="fasilitas" placeholder="Fasilitas">
+                <span class="icon left"><i class="mdi mdi-home-modern"></i></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Alamat</label>
+              <div class="control icons-left">
+                <input class="input" type="text" name="alamat" placeholder="Alamat">
+                <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Kamar Tidur</label>
+              <div class="control icons-left">
+                <input class="input" type="number" name="kamar_tidur" placeholder="Kamar Tidur">
+                <span class="icon left"><i class="mdi mdi-bed"></i></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Kamar Mandi</label>
+              <div class="control icons-left">
+                <input class="input" type="number" name="kamar_mandi" placeholder="Kamar Mandi">
+                <span class="icon left"><i class="mdi mdi-shower"></i></span>
               </div>
             </div>
 

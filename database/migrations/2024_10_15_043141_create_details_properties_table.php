@@ -14,14 +14,6 @@ return new class extends Migration
         Schema::create('details_properties', function (Blueprint $table) {
             $table->id('details_properties_id');
             $table->unsignedBigInteger('properties_id');
-            $table->string('luas_bagunan');
-            $table->string('luas_tanah');
-            $table->string('fasilitas')->nullable();
-            $table->string('sertifikat')->nullable();
-            $table->string('alamat');
-            $table->date('tgl_bng');
-            $table->integer('kamar_tidur')->nullable();
-            $table->integer('kamar_mandi');
             $table->timestamps();
         });
     }

@@ -39,23 +39,27 @@ class PosController extends Controller
 
     //Admin
 
-
-
     public function admin()
     {
         $datas = properties::all();
-        return view('admin.tables', compact('datas'));
+        $agens = agen::all();
+        $kategoris = kategori::all();
+        $status = ['disewa', 'dijual', 'tersedia', 'tidak tersedia'];
+        return view('admin.tables', compact('datas', 'agens', 'kategoris', 'status'));
     }
     public function profile_admin()
     {
         $users = User::all();
-        return view('admin.profile', compact('users')); // Pastikan 'users' sudah didefinisikan
+        return view('admin.profile', compact('users'));
     }
+
     public function tables()
     {
         $datas = properties::all();
         return view('admin.tables', compact('datas'));
     }
+    
+    // form property
     public function form()
     {
         $agens = agen::all();
@@ -63,9 +67,6 @@ class PosController extends Controller
         return view('admin.forms', compact('agens', 'kategoris'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
@@ -85,20 +86,35 @@ class PosController extends Controller
             'harga' => 'required|numeric',
             'deskripsi' => 'nullable|string',
             'status' => 'required',
+            'luas_bangunan' => 'required',
+            'luas_tanah' => 'required',
+            'fasilitas' => 'nullable|string',
+            'sertifikat' => 'nullable|string',
+            'alamat' => 'required|string',
+            'tgl_bng' => 'nullable|date',
+            'kamar_tidur' => 'nullable|integer',
+            'kamar_mandi' => 'nullable|integer',
         ]);
 
         // Upload gambar
-        $imagePath = $request->file('image')->store('images/properties', 'public');
+        $imagePath = $request->file('image');
+        $imagePath->storeAs('public/properties', $imagePath->hashName());
 
         // Simpan data ke database
         $property = Properties::create([
             'agen_id' => $request->agen_id,
             'kategori_id' => $request->kategori_id,
-            'image' => $imagePath,
+            'image' => $imagePath->hashName(),
             'nama' => $request->nama,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
             'status' => $request->status,
+            'luas_bangunan' => $request->luas_bangunan,
+            'luas_tanah' => $request->luas_tanah,
+            'fasilitas' => $request->fasilitas,
+            'alamat' => $request->alamat,
+            'kamar_tidur' => $request->kamar_tidur,
+            'kamar_mandi' => $request->kamar_mandi,
         ]);
 
         // Kembalikan response sukses atau redirect
@@ -108,17 +124,25 @@ class PosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show_pro(string $id)
     {
-        //
+    $property = Properties::findOrFail($id);
+    $kategoris = Kategori::all();
+    $agens = Agen::all();
+    $status = ['disewa', 'dijual', 'tersedia', 'tidak tersedia'];
+    return view('admin.show_pro', compact('property', 'kategoris', 'agens', 'status'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit_pro(string $id)
     {
-        //
+    $property = Properties::findOrFail($id);
+    $agens = Agen::all();
+    $kategoris = Kategori::all();
+
+    return view('admin.edit_pro', compact('property', 'agens', 'kategoris'));
     }
 
     /**
@@ -126,14 +150,17 @@ class PosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete_pro(string $id)
     {
-        //
+        $property = Properties::findOrFail($id);
+        \Illuminate\Support\Facades\Storage::delete('public/properties/' . $property->image);
+        $property->delete();
+        return redirect()->route('admin.index')->with('success', 'Property berhasil dihapus!');
     }
 }

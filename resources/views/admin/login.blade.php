@@ -60,7 +60,7 @@
           <div class="field spaced">
             <label class="label">Login</label>
             <div class="control icons-left">
-              <input class="input" type="text" name="email" placeholder="user@example.com" autocomplete="username">
+              <input class="input" type="text" name="login" placeholder="user@example.com" autocomplete="username">
               <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
             </div>
             <p class="help">
@@ -97,7 +97,7 @@
               </button>
             </div>
             <div class="control">
-              <a href="/admin" class="button">
+              <a href="/admin/index" class="button">
                 Back
               </a>
             </div>

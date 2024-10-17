@@ -20,9 +20,14 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('deskripsi')->nullable();
             $table->enum('status', ['disewa', 'dijual', 'tersedia', 'tidak tersedia']);
+            $table->string('luas_bangunan');
+            $table->string('luas_tanah');
+            $table->string('fasilitas')->nullable();
+            $table->string('alamat');
+            $table->integer('kamar_tidur')->nullable();
+            $table->integer('kamar_mandi')->nullable();
             $table->timestamps();
-            
-            
+
             $table->foreign('agen_id')->references('agen_id')->on('agens')->onDelete('cascade');
             $table->foreign('kategori_id')->references('kategori_id')->on('kategoris')->onDelete('cascade');
         });

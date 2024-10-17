@@ -140,7 +140,11 @@
       </div>
     </nav>
 
-    <section class="section main-section shadow-sm card shadow-md">
+    <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
+      <div class="flex justify-between">
+        <h1 class="title"><Strong>Data Agent</Strong></h1>
+        <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Property</a>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -157,20 +161,116 @@
           @foreach($datas as $data)
           <tr>
             <td>{{$data->properties_id}}</td>
-            <td><img src="{{ asset('storage/images/properties/' . $data->image) }}" alt="Image"></td>
+            <td><img src="{{ asset('storage/properties/' . $data->image) }}" alt="Image" style="width: 100px; height: auto;"></td>
             <td>{{$data->nama}}</td>
             <td>{{$data->kategori->nama_kategori}}</td>
             <td>{{$data->status}}</td>
             <td>
-              <a href="/admin/properties/edit" class="button blue"><span class="mdi mdi-pencil"></span></a>
-              <a href="/admin/properties/delete" class="button red"><span class="mdi mdi-delete-empty"></span></span></a>
-              <a href="/admin/properties/delete" class="button green"><span class="mdi mdi-eye-circle"></span></span></span></a>
+              <a href="/admin/properties/edit/{{$data->properties_id}}" class="button blue"><span class="mdi mdi-pencil"></span></a>
+              <a href="/admin/properties/delete/{{$data->properties_id}}" class="button red"><span class="mdi mdi-delete-empty"></span></span></a>
+              <a href="/admin/properties/show/{{$data->properties_id}}" class="button green"><span class="mdi mdi-eye-circle"></span></span></span></a>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
       @if($datas->isEmpty())
+        <div class="card empty">
+          <div class="card-content">
+            <div>
+              <span class="icon large"><i class="mdi mdi-file-document-outline mdi-48px"></i></span>
+            </div>
+            <p>Data Kosong</p>
+            <p class="help">Silakan Masukan data Terlebih dahulu</p>
+          </div>
+        </div>
+      @endif
+
+    </section>
+
+    <!-- agent -->
+    <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
+      <div class="flex justify-between">
+        <h1 class="title"><Strong>Data Agent</Strong></h1>
+        <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Agent</a>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Image</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Username</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Company</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          @foreach($agens as $agen)
+          <tr>
+            <td>{{$agen->agen_id}}</td>
+            <td>
+              <img src="{{ $agen->image ? asset('storage/agens/' . $agen->image) : asset('/images/default-user.png') }}" alt="Image" style="width: 50px; height: auto;">
+            </td>
+            <td>{{$agen->name}}</td>
+            <td>{{$agen->username}}</td>
+            <td>{{$agen->contact}}</td>
+            <td>{{$agen->company}}</td>
+            <td>{{$agen->alamat}}</td>
+            <td>
+              <a href="/admin/agens/edit/{{$agen->agen_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
+              <a href="/admin/agens/delete/{{$agen->agen_id}}" class="button red"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
+              <a href="/admin/agens/show/{{$agen->agen_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      @if($agens->isEmpty())
+        <div class="card empty">
+          <div class="card-content">
+            <div>
+              <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
+            </div>
+            <p>Nothing's here…</p>
+          </div>
+        </div>
+      @endif
+
+    </section>
+    <!-- Kategori-->
+    <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
+      <div class="flex justify-between">
+        <h1 class="title"><Strong>Data Kategori</Strong></h1>
+        <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Kategori</a>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          @foreach($kategoris as $kategori)
+          <tr>
+            <td>{{$kategori->kategori_id}}</td>
+            <td>{{$kategori->nama_kategori}}</td>
+            <td>
+              <a href="/admin/kategoris/edit/{{$kategori->kategori_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
+              <a href="/admin/kategoris/delete/{{$kategori->kategori_id}}" class="button red"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
+              <a href="/admin/kategoris/show/{{$kategori->kategori_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      @if($kategoris->isEmpty())
         <div class="card empty">
           <div class="card-content">
             <div>
@@ -188,7 +288,6 @@
 
   <!-- Scripts below are for demo only -->
   <script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
-
 
   <script>
     ! function(f, b, e, v, n, t, s) {
