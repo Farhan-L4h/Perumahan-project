@@ -13,7 +13,7 @@
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
     <h1 class="title">
-      SH
+      SHOW PROPERTY/ <strong>{{ $property->nama }}</strong>
     </h1>
     <button class="button light">Button</button>
   </div>
@@ -35,64 +35,90 @@
           </div>
           <hr>
 
-          <!-- <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input type="text" readonly value="John Doe" class="input is-static">
-            </div>
-          </div> 
-
-          <hr>
-
-          <div class="field">
-            <label class="label">E-mail</label>
-            <div class="control">
-              <input type="text" readonly value="user@example.com" class="input is-static">
-            </div>
-          </div> -->
-
         </div>
       </div>
 
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title">
-            <span class="icon"><i class="mdi mdi-home"></i></span>
-            Property Detail
+          <p class="card-header-title" style="font-size: 30px; font-weight: bold;">
+            {{ $property->nama }}
           </p>
         </header>
+        <div style="margin-left: 10px;">
+        <p class="ml-2 my-1">
+          <span class="icon"><i class="mdi mdi-map-marker"></i></span>
+          {{ $property->alamat }}
+        </p>
+        <p class="ml-2 my-1">
+          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
+          {{ $property->kategori->nama_kategori }}
+        </p>
+        @if($property->status == "disewa")
+          <p class="ml-2 my-1">
+            <button class="button green">
+              {{ $property->status }}
+            </button>
+          </p>
+        @elseif($property->status == "terjual")
+          <p class="ml-2 my-1">
+            <button class="button red">
+              {{ $property->status }}
+            </button>
+          </p>
+        @elseif($property->status == "tersedia")
+          <p class="ml-2 my-1">
+            <button class="button blue">
+              {{ $property->status }}
+            </button>
+          </p>
+        @else
+          <p class="ml-2 my-1">
+            <button class="button red">
+              {{ $property->status }}
+            </button>
+          </p>
+        @endif
+        <p class="ml-2 my-1">
+          Rp. {{ $property->harga }}
+        </p>
+
+        <p class="ml-2 my-1">
+          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
+          {{ $property->luas_tanah }} m<sup>2</sup>
+        </p>
+        <p class="ml-2 my-1">
+          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
+          {{ $property->luas_bangunan }} m<sup>2</sup>
+        </p>
         <div class="card-content">
-          <form>
-        
-            <div class="field">
-              <label class="label">Nama Property</label>
-              <div class="field-body">
-                <div class="field">
-                  <div class="control">
-                    <input type="text" value="{{ $property->nama }}" class="input" disabled>
-                  </div>   
+          <p class="ml-2 my-1">
+            {{ $property->deskripsi }}
+          </p>
+        </div>
+          <div class="card shadow-md mt-4">
+            <header class="card-header flex items-center">
+              <img src="{{ $property->agen->image ? asset('storage/agens/'.$property->agen->image) : asset('/images/default-user.png') }}" class="w-1/3 h-auto object-cover" style="width: 30%; height: auto; object-fit: cover;">
+              <div class="ml-4">
+                <p class="card-header-title">
+                  Name: {{ $property->agen->name }}
+                </p>
+                <div class="card-content text-left">
+                  <p>
+                    Username: {{ $property->agen->username }}
+                  </p>
+                  <p>
+                    Company: {{ $property->agen->company }}
+                  </p>
+                  <p>
+                    Contact: {{ $property->agen->contact }}
+                  </p>
+                  <p>
+                    Address: {{ $property->agen->alamat }}
+                  </p>
                 </div>
               </div>
-            </div>
-            <div class="field">
-              <label class="label">Kategori Property</label>
-              <div class="field-body">
-                <div class="field">
-                  <div class="control">
-                    <input type="text" value="{{ $property->kategori->nama_kategori }}" class="input" disabled>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="field">
-              <div class="control">
-                <button type="submit" class="button green">
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
+            </header>
+          </div>
         </div>
       </div>
       

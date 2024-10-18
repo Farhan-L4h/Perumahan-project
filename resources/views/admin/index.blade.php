@@ -150,7 +150,7 @@
         </a>
       </li>
     </ul>
-    <p class="menu-label">Examples</p>
+    <p class="menu-label">Content</p>
     <ul class="menu-list">
       <li class="--set-active-tables-html">
         <a href="/admin/tables">

@@ -41,11 +41,11 @@ class PosController extends Controller
 
     public function admin()
     {
-        $datas = properties::all();
+        $datas = properties::paginate(10);
         $agens = agen::all();
         $kategoris = kategori::all();
-        $status = ['disewa', 'dijual', 'tersedia', 'tidak tersedia'];
-        return view('admin.tables', compact('datas', 'agens', 'kategoris', 'status'));
+        $users = User::all();
+        return view('admin.tables', compact('datas', 'agens', 'kategoris', 'users'));
     }
     public function profile_admin()
     {
@@ -55,8 +55,11 @@ class PosController extends Controller
 
     public function tables()
     {
-        $datas = properties::all();
-        return view('admin.tables', compact('datas'));
+        $datas = properties::paginate(10);
+        $agens = agen::all();
+        $kategoris = kategori::all();
+        $users = User::all();
+        return view('admin.tables', compact('datas', 'agens', 'kategoris', 'users'));
     }
     
     // form property

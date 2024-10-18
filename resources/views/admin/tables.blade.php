@@ -164,7 +164,17 @@
             <td><img src="{{ asset('storage/properties/' . $data->image) }}" alt="Image" style="width: 100px; height: auto;"></td>
             <td>{{$data->nama}}</td>
             <td>{{$data->kategori->nama_kategori}}</td>
-            <td>{{$data->status}}</td>
+            <td>
+              @if($data->status == 'disewa')
+                <button class="button green">Disewa</button>
+              @elseif($data->status == 'dijual')
+                <button class="button red">Terjual</button>
+              @elseif($data->status == 'tersedia')
+                <button class="button blue">Tersedia</button>
+              @else
+                <button class="button red">Tidak Tersedia</button>
+              @endif
+            </td>
             <td>
               <a href="/admin/properties/edit/{{$data->properties_id}}" class="button blue"><span class="mdi mdi-pencil"></span></a>
               <a href="/admin/properties/delete/{{$data->properties_id}}" class="button red"><span class="mdi mdi-delete-empty"></span></span></a>
@@ -173,6 +183,9 @@
           </tr>
           @endforeach
         </tbody>
+        <div class="pagination">
+          {{ $datas->links('pagination::bootstrap-5') }}
+        </div>
       </table>
       @if($datas->isEmpty())
         <div class="card empty">
@@ -242,46 +255,91 @@
 
     </section>
     <!-- Kategori-->
-    <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
-      <div class="flex justify-between">
-        <h1 class="title"><Strong>Data Kategori</Strong></h1>
-        <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Kategori</a>
-      </div>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          @foreach($kategoris as $kategori)
-          <tr>
-            <td>{{$kategori->kategori_id}}</td>
-            <td>{{$kategori->nama_kategori}}</td>
-            <td>
-              <a href="/admin/kategoris/edit/{{$kategori->kategori_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
-              <a href="/admin/kategoris/delete/{{$kategori->kategori_id}}" class="button red"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
-              <a href="/admin/kategoris/show/{{$kategori->kategori_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-      @if($kategoris->isEmpty())
-        <div class="card empty">
-          <div class="card-content">
-            <div>
-              <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
-            </div>
-            <p>Nothing's here…</p>
-          </div>
-        </div>
-      @endif
+     <div style="display: flex; justify-content: start;">
+       <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px; margin-right: 10px;">
+         <div class="flex justify-between">
+           <h1 class="title"><Strong>Data Status</Strong></h1>
+           <a href="/admin/form" class="button blue"><span class="mdi mdi-plus"></span> Tambah User</a>
+         </div>
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th scope="col">No</th>
+               <th scope="col">Status</th>
+               <th scope="col">Action</th>
+             </tr>
+           </thead>
+           
+           <tbody>
+             @foreach($users as $user)
+             <tr>
+               <td>{{$user->id}}</td>
+               <td>{{$user->name}}</td>
+               <td>{{$user->email}}</td>
+               <td>{{$user->role}}</td>
+               <td>
+                 <a href="/admin/users/edit/{{$user->id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
+                 <a href="/admin/users/delete/{{$user->id}}" class="button red"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
+                 <a href="/admin/users/show/{{$user->id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
+               </td>
+             </tr>
+             @endforeach
+           </tbody>
+         </table>
+         @if($users->isEmpty())
+           <div class="card empty">
+             <div class="card-content">
+               <div>
+                 <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
+               </div>
+               <p>Nothing's here…</p>
+             </div>
+           </div>
+         @endif
+   
+       </section>
 
-    </section>
+       <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
+         <div class="flex justify-between">
+           <h1 class="title"><Strong>Data Kategori</Strong></h1>
+           <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Kategori</a>
+         </div>
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th scope="col">No</th>
+               <th scope="col">Nama</th>
+               <th scope="col">Action</th>
+             </tr>
+           </thead>
+           
+           <tbody>
+             @foreach($kategoris as $kategori)
+             <tr>
+               <td>{{$kategori->kategori_id}}</td>
+               <td>{{$kategori->nama_kategori}}</td>
+               <td>
+                 <a href="/admin/kategoris/edit/{{$kategori->kategori_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
+                 <a href="/admin/kategoris/delete/{{$kategori->kategori_id}}" class="button red"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
+                 <a href="/admin/kategoris/show/{{$kategori->kategori_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
+               </td>
+             </tr>
+             @endforeach
+           </tbody>
+         </table>
+         @if($kategoris->isEmpty())
+           <div class="card empty">
+             <div class="card-content">
+               <div>
+                 <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
+               </div>
+               <p>Nothing's here…</p>
+             </div>
+           </div>
+         @endif
+   
+       </section>
+     </div>
 
     
   </div>
