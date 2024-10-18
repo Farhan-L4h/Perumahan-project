@@ -153,7 +153,7 @@
       </div>
     </section>
 
-   
+
 
     <section class="section main-section">
       <div class="card mb-6">
@@ -165,13 +165,13 @@
         </header>
         <div class="card-content">
           @if ($errors->any())
-              <div class="notification is-danger">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
+          <div class="notification is-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
           @endif
           <form method="post" action="{{ route('admin.properties.store') }}" enctype="multipart/form-data">
             @csrf
@@ -184,35 +184,6 @@
             </div>
 
             <div class="field">
-              <label class="label">Agen</label>
-              <div class="control icons-left">
-                <div class="select">
-                  <select name="agen_id">
-                    @foreach($agens as $agen)
-                    <option value="{{ $agen->agen_id }}">{{ $agen->name }}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <span class="icon left"><i class="mdi mdi-account-box"></i></span>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label">Kategori</label>
-              <div class="control icons-left">
-                <div class="select">
-                  <select name="kategori_id">
-                    <option selected>Select</option>
-                    @foreach($kategoris as $kategori)
-                    <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <span class="icon left"><i class="mdi mdi-archive"></i></span>
-              </div>
-            </div>
-
-            <div class="field">
               <label class="label">Judul Properti</label>
               <div class="control icons-left">
                 <input class="input" type="text" name="nama" placeholder="Judul Properti">
@@ -220,24 +191,37 @@
               </div>
             </div>
 
-            <div class="field">
-              <label class="label">Harga</label>
-              <div class="control icons-left">
-                <input class="input" type="number" name="harga" placeholder="Harga">
-                <span class="icon left"><i class="mdi mdi-tag"></i></span>
+            <div class="flex">
+              
+              <div class="field" style="margin-right: 10px; width: 15%;">
+                <label class="label">Agen</label>
+                <div class="control">
+                  <div class="select">
+                    <select name="agen_id">
+                      @foreach($agens as $agen)
+                      <option value="{{ $agen->agen_id }}">{{ $agen->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="field">
-              <label class="label">Deskripsi</label>
+              <div class="field" style="margin-right: 10px; width: 15%;">
+              <label class="label">Kategori</label>
               <div class="control">
-                <textarea class="textarea" placeholder="Deskripsi" name="deskripsi"></textarea>
+                <div class="select">
+                  <select name="kategori_id">
+                    @foreach($kategoris as $kategori)
+                    <option value="{{ $kategori->kategori_id }}">{{ $kategori->nama_kategori }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
             </div>
 
-            <div class="field">
+            <div class="field" style="margin-right: 10px; width: 15%;">
               <label class="label">Status</label>
-              <div class="control icons-left">
+              <div class="control">
                 <div class="select">
                   <select name="status">
                     <option value="disewa">Disewa</option>
@@ -246,19 +230,18 @@
                     <option value="tidak tersedia">Tidak Tersedia</option>
                   </select>
                 </div>
-                <span class="icon left"><i class="mdi mdi-file-document"></i></span>
               </div>
             </div>
-            
-            <div class="field">
+
+            <div class="field" style="margin-right: 10px;">
               <label class="label">Luas Tanah</label>
               <div class="control icons-left">
                 <input class="input" type="text" name="luas_tanah" placeholder="Luas Tanah">
                 <span class="icon left"><i class="mdi mdi-ruler"></i></span>
               </div>
             </div>
-            
-            <div class="field">
+
+            <div class="field" style="margin-right: 10px;">
               <label class="label">Luas Bangunan</label>
               <div class="control icons-left">
                 <input class="input" type="text" name="luas_bangunan" placeholder="Luas Bangunan">
@@ -267,7 +250,7 @@
             </div>
 
 
-            <div class="field">
+            <div class="field" style="margin-right: 10px;">
               <label class="label">Fasilitas</label>
               <div class="control icons-left">
                 <input class="input" type="text" name="fasilitas" placeholder="Fasilitas">
@@ -275,15 +258,7 @@
               </div>
             </div>
 
-            <div class="field">
-              <label class="label">Alamat</label>
-              <div class="control icons-left">
-                <input class="input" type="text" name="alamat" placeholder="Alamat">
-                <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
-              </div>
-            </div>
-
-            <div class="field">
+            <div class="field" style="margin-right: 10px;">
               <label class="label">Kamar Tidur</label>
               <div class="control icons-left">
                 <input class="input" type="number" name="kamar_tidur" placeholder="Kamar Tidur">
@@ -298,6 +273,32 @@
                 <span class="icon left"><i class="mdi mdi-shower"></i></span>
               </div>
             </div>
+
+            </div>
+
+            <div class="field">
+              <label class="label">Harga</label>
+              <div class="control icons-left">
+                <input class="input" type="number" name="harga" placeholder="Harga">
+                <span class="icon left"><i class="mdi mdi-tag"></i></span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Alamat</label>
+              <div class="control icons-left">
+                <input class="input" type="text" name="alamat" placeholder="Alamat">
+                <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Deskripsi</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Deskripsi" name="deskripsi"></textarea>
+              </div>
+            </div> 
+
 
             <hr>
 
