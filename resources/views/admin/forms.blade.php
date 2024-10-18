@@ -251,9 +251,9 @@
 
 
             <div class="field" style="margin-right: 10px;">
-              <label class="label">Fasilitas</label>
+              <label class="label">Kota</label>
               <div class="control icons-left">
-                <input class="input" type="text" name="fasilitas" placeholder="Fasilitas">
+                <input class="input" type="text" name="kota" placeholder="Masukkan nama kota">
                 <span class="icon left"><i class="mdi mdi-home-modern"></i></span>
               </div>
             </div>
@@ -283,7 +283,7 @@
                 <span class="icon left"><i class="mdi mdi-tag"></i></span>
               </div>
             </div>
-            
+
             <div class="field">
               <label class="label">Alamat</label>
               <div class="control icons-left">

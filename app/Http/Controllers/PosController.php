@@ -22,7 +22,8 @@ class PosController extends Controller
     }
     public function property()
     {
-        return view('user/properties');
+        $datas = properties::all();
+        return view('user/properties', compact('datas'));
     }
     public function services()
     {
@@ -87,13 +88,14 @@ class PosController extends Controller
             'kategori_id' => 'required',
             'nama' => 'required|string|max:255',
             'harga' => 'required|numeric',
-            'deskripsi' => 'nullable|string',
+            'deskripsi' => 'required',
             'status' => 'required',
             'luas_bangunan' => 'required',
             'luas_tanah' => 'required',
             'fasilitas' => 'nullable|string',
             'sertifikat' => 'nullable|string',
             'alamat' => 'required|string',
+            'kota' => 'required|string',
             'tgl_bng' => 'nullable|date',
             'kamar_tidur' => 'nullable|integer',
             'kamar_mandi' => 'nullable|integer',
@@ -114,8 +116,8 @@ class PosController extends Controller
             'status' => $request->status,
             'luas_bangunan' => $request->luas_bangunan,
             'luas_tanah' => $request->luas_tanah,
-            'fasilitas' => $request->fasilitas,
             'alamat' => $request->alamat,
+            'kota' => $request->kota,
             'kamar_tidur' => $request->kamar_tidur,
             'kamar_mandi' => $request->kamar_mandi,
         ]);

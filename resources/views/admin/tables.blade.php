@@ -142,7 +142,7 @@
 
     <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
       <div class="flex justify-between">
-        <h1 class="title"><Strong>Data Agent</Strong></h1>
+        <h1 class="title"><Strong>Data Property</Strong></h1>
         <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Property</a>
       </div>
       <table class="table table-striped">
@@ -152,6 +152,7 @@
             <th scope="col">Image</th>
             <th scope="col">Nama</th>
             <th scope="col">Kategori</th>
+            <th scope="col">Kota</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
@@ -161,9 +162,10 @@
           @foreach($datas as $data)
           <tr>
             <td>{{$data->properties_id}}</td>
-            <td><img src="{{ asset('storage/properties/' . $data->image) }}" alt="Image" style="width: 100px; height: auto;"></td>
+            <td><img src="{{ asset('storage/properties/' . $data->image) }}" alt="Image" style="width: 50px; height: 50px; object-fit: cover;"></td>
             <td>{{$data->nama}}</td>
             <td>{{$data->kategori->nama_kategori}}</td>
+            <td>{{$data->kota}}</td>
             <td>
               @if($data->status == 'disewa')
                 <button class="button green">Disewa</button>
@@ -346,6 +348,8 @@
 
   <!-- Scripts below are for demo only -->
   <script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
+
+
 
   <script>
     ! function(f, b, e, v, n, t, s) {

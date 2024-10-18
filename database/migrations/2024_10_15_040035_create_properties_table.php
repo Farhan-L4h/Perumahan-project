@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('image');
             $table->string('nama');
             $table->integer('harga');
-            $table->string('deskripsi')->nullable();
+            $table->text('deskripsi');
             $table->enum('status', ['disewa', 'dijual', 'tersedia', 'tidak tersedia']);
             $table->string('luas_bangunan');
             $table->string('luas_tanah');
-            $table->string('fasilitas')->nullable();
             $table->string('alamat');
+            $table->string('kota');
             $table->integer('kamar_tidur')->nullable();
             $table->integer('kamar_mandi')->nullable();
             $table->timestamps();

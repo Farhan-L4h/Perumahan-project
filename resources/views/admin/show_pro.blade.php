@@ -19,83 +19,36 @@
   </div>
 </section>
 
-  <section class="section main-section">
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
+<section class="section main-section">
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
 
     <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">
-            <span class="icon"><i class="mdi mdi-image"></i></span>
-            Property Image
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="image m-0">
-            <img src="{{ asset('storage/properties/'.$property->image) }}" alt="John Doe" style="width: 100%; height: auto; object-fit: cover;">
-          </div>
-          <hr>
-
+      <div class="card-content">
+        <div class="image m-0">
+          <img src="{{ asset('storage/properties/'.$property->image) }}" alt="Property Image" style="width: 100%; height: auto; object-fit: cover;">
         </div>
       </div>
+    </div>
 
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title" style="font-size: 30px; font-weight: bold;">
-            {{ $property->nama }}
-          </p>
-        </header>
-        <div style="margin-left: 10px;">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title" style="font-size: 30px; font-weight: bold;">
+          {{ $property->nama }}
+        </p>
+      </header>
+      <div style="margin-left: 10px;">
         <p class="ml-2 my-1">
           <span class="icon"><i class="mdi mdi-map-marker"></i></span>
           {{ $property->alamat }}
         </p>
-        <p class="ml-2 my-1">
-          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
-          {{ $property->kategori->nama_kategori }}
-        </p>
-        @if($property->status == "disewa")
-          <p class="ml-2 my-1">
-            <button class="button green">
-              {{ $property->status }}
-            </button>
-          </p>
-        @elseif($property->status == "terjual")
-          <p class="ml-2 my-1">
-            <button class="button red">
-              {{ $property->status }}
-            </button>
-          </p>
-        @elseif($property->status == "tersedia")
-          <p class="ml-2 my-1">
-            <button class="button blue">
-              {{ $property->status }}
-            </button>
-          </p>
-        @else
-          <p class="ml-2 my-1">
-            <button class="button red">
-              {{ $property->status }}
-            </button>
-          </p>
-        @endif
-        <p class="ml-2 my-1">
-          Rp. {{ $property->harga }}
-        </p>
 
-        <p class="ml-2 my-1">
-          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
-          {{ $property->luas_tanah }} m<sup>2</sup>
-        </p>
-        <p class="ml-2 my-1">
-          <span class="icon"><i class="mdi mdi-equal-box"></i></span>
-          {{ $property->luas_bangunan }} m<sup>2</sup>
-        </p>
         <div class="card-content">
-          <p class="ml-2 my-1">
-            {{ $property->deskripsi }}
-          </p>
-        </div>
-          <div class="card shadow-md mt-4">
+            <p class="ml-2 my-1">
+              {{ $property->deskripsi }}
+            </p>
+          </div>
+          
+          <div class="card mt-4">
             <header class="card-header flex items-center">
               <img src="{{ $property->agen->image ? asset('storage/agens/'.$property->agen->image) : asset('/images/default-user.png') }}" class="w-1/3 h-auto object-cover" style="width: 30%; height: auto; object-fit: cover;">
               <div class="ml-4">
@@ -103,27 +56,49 @@
                   Name: {{ $property->agen->name }}
                 </p>
                 <div class="card-content text-left">
-                  <p>
-                    Username: {{ $property->agen->username }}
-                  </p>
-                  <p>
-                    Company: {{ $property->agen->company }}
-                  </p>
-                  <p>
-                    Contact: {{ $property->agen->contact }}
-                  </p>
-                  <p>
-                    Address: {{ $property->agen->alamat }}
-                  </p>
+                  <p>Username: {{ $property->agen->username }}</p>
+                  <p>Company: {{ $property->agen->company }}</p>
+                  <p>Contact: {{ $property->agen->contact }}</p>
+                  <p>Address: {{ $property->agen->alamat }}</p>
                 </div>
               </div>
             </header>
           </div>
+
+        <div style="margin-left: 10px; margin-top: 10px; display: flex; justify-content: space-between;">
+          <p class="my-1">
+            <button class="button {{ $property->status == 'disewa' ? 'green' : ($property->status == 'terjual' ? 'red' : ($property->status == 'tersedia' ? 'blue' : 'red')) }}">
+              {{ $property->status }}
+            </button>
+          </p>
+          <p class="ml-2 my-1">
+            <span class="icon"><i class="mdi mdi-city"></i></span>
+            {{ $property->kota }}
+          </p>
+          <p class="ml-2 my-1">
+            <span class="icon"><i class="mdi mdi-equal-box"></i></span>
+            {{ $property->kategori->nama_kategori }}
+          </p>
+
+
+          <p class="ml-2 my-1">
+            Rp. {{ $property->harga }}
+          </p>
+          <p class="ml-2 my-1">
+            T :
+            {{ $property->luas_tanah }} m<sup>2</sup>
+          </p>
+          <p class="ml-2 my-1">
+            B :
+            {{ $property->luas_bangunan }} m<sup>2</sup>
+          </p>
+          
+          
         </div>
       </div>
-      
+
     </div>
-    <div class="card">
+    <!-- <div class="card">
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-lock"></i></span>
@@ -164,7 +139,7 @@
           </div>
         </form>
       </div>
-    </div>
-  </section>
+    </div> -->
+</section>
 
 @endsection

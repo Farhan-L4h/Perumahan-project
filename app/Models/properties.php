@@ -25,6 +25,7 @@ class properties extends Model
         'luas_tanah',
         'fasilitas',
         'alamat',
+        'kota',
         'kamar_tidur',
         'kamar_mandi',
     ];
