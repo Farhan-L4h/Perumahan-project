@@ -8,12 +8,8 @@
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
               <li class="active"><a href="/user">Home</a></li>
-              <li class="has-children">
+              <li>
                 <a href="/user/property">Properties</a>
-                <ul class="dropdown">
-                  <li><a href="/property-1">Buy Property</a></li>
-                  <li><a href="/property-1">Sell Property</a></li>
-                </ul>
               </li>
               <li><a href="/user/services">Services</a></li>
               <li><a href="/user/about">About</a></li>

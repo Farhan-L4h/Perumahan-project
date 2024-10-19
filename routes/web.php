@@ -8,7 +8,10 @@ Route::prefix('user')->group(function () {
     Route::get('/', [PosController::class, 'index']);
 
     Route::get('/property', [PosController::class, 'property']);
+
     Route::get('/property/{id}', [PosController::class, 'property_single']);
+    Route::get('/property-single/{id}', [PosController::class, 'property_single']);
+    
     Route::get('/services', [PosController::class, 'services']);
     Route::get('/services/{id}', [PosController::class, 'servis']);
     Route::get('/about', [PosController::class, 'about']);

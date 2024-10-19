@@ -19,11 +19,21 @@ class PosController extends Controller
         $datas = properties::all();
         return view('user/index', compact('datas'));
     }
+
     public function property()
     {
         $datas = properties::all();
         return view('user/properties', compact('datas'));
     }
+
+    public function property_single(string $id)
+    {
+        $data = properties::findOrFail($id);
+        $agen = agen::findOrFail($data->agen_id);
+        $kategori = kategori::findOrFail($data->kategori_id);
+        return view('user/property-single', compact('data', 'agen', 'kategori'));
+    }
+
     public function services()
     {
         return view('user/services');
