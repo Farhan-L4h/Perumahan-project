@@ -10,24 +10,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
-    <link rel="shortcut icon" href="('favicon.png') " />
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com') }}" />
+    <link rel="preconnect" href="{{ asset('https://fonts.gstatic.com') }}" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}" />
 
-    <link rel="stylesheet" href="css/tiny-slider.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
     <title>
       Property &mdash; Free Bootstrap 5 Website Template by Untree.co
@@ -49,7 +49,7 @@
 
     <div
       class="hero page-inner overlay"
-      style="background-image: url('images/hero_bg_3.jpg')"
+      style="background-image: url('{{ asset('images/hero_bg_3.jpg') }}')"
     >
       <div class="container">
         <div class="row justify-content-center align-items-center">
@@ -62,7 +62,7 @@
               data-aos-delay="200"
             >
               <ol class="breadcrumb text-center justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="/user">Home</a></li>
                 <li
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
@@ -84,17 +84,15 @@
           </div>
           <div class="col-lg-6">
             <p class="text-black-50">
-            Selamat datang di Tora Property, perusahaan yang bergerak di bidang properti yang berkomitmen untuk memberikan solusi terbaik bagi kebutuhan hunian dan investasi Anda. Dengan pengalaman bertahun-tahun di industri ini, kami memahami bahwa properti bukan hanya sekadar tempat tinggal, tetapi juga merupakan investasi masa depan yang berharga.
+              Selamat datang di Polinema Property, mitra terpercaya dalam menemukan hunian impian dan investasi yang menguntungkan. Kami memahami bahwa properti bukan hanya soal tempat tinggal, tetapi juga tentang masa depan yang lebih baik. Dengan pengalaman bertahun-tahun, kami menawarkan pilihan properti yang beragam, mulai dari rumah tinggal, apartemen modern, hingga lahan komersial yang strategis.
             </p>
             <p class="text-black-50">
-            Kami menawarkan berbagai jenis properti, mulai dari rumah tinggal, apartemen, hingga lahan komersial. Tim profesional kami siap membantu Anda menemukan properti yang sesuai dengan kebutuhan dan anggaran Anda. Kami percaya bahwa setiap klien memiliki keunikan, dan kami berusaha memberikan layanan yang dipersonalisasi untuk memenuhi harapan Anda.
+              Tim profesional kami siap membantu Anda menemukan properti yang sesuai dengan kebutuhan dan anggaran. Kami percaya bahwa setiap orang memiliki impian, dan tugas kami adalah memberikan solusi yang personal dan menyenangkan. Dengan pendekatan yang ramah dan transparan, kami memastikan proses pencarian properti Anda berjalan lancar dan bebas stres.
             </p>
           </div>
           <div class="col-lg-6">
             <p class="text-black-50">
-            Visi kami adalah menjadi pemimpin di pasar properti dengan menyediakan layanan berkualitas tinggi, transparan, dan inovatif. Misi kami adalah membantu Anda mewujudkan impian memiliki properti yang ideal dengan proses yang mudah dan menyenangkan.
-
-Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
+              Visi kami adalah menjadi pemimpin di pasar properti dengan layanan berkualitas dan inovatif. Misi kami adalah membantu mewujudkan impian properti Anda dengan cara yang mudah dan cepat. Bergabunglah dengan Polinema Property dan temukan properti yang akan mengubah hidup Anda hari ini!
             </p>
           </div>
         </div>
@@ -106,7 +104,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
         <div class="row justify-content-between mb-5">
           <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
             <div class="img-about dots">
-              <img src="images/hero_bg_3.jpg" alt="Image" class="img-fluid" />
+              <img src="{{ asset('images/hero_bg_3.jpg') }}" alt="Image" class="img-fluid" />
             </div>
           </div>
           <div class="col-lg-4">
@@ -117,8 +115,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
               <div class="feature-text">
                 <h3 class="heading">Quality properties</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Kami menawarkan berbagai properti berkualitas tinggi, mulai dari hunian nyaman hingga lahan komersial yang strategis. Setiap properti dipilih dengan cermat untuk memastikan nilai investasi yang optimal.
                 </p>
               </div>
             </div>
@@ -130,8 +127,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
               <div class="feature-text">
                 <h3 class="heading">Top rated agents</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Tim kami terdiri dari agen-agen profesional berpengalaman yang selalu siap membantu Anda menemukan properti terbaik sesuai kebutuhan. Layanan kami transparan, cepat, dan berfokus pada kepuasan Anda.
                 </p>
               </div>
             </div>
@@ -143,8 +139,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
               <div class="feature-text">
                 <h3 class="heading">Easy and safe</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Nikmati proses pembelian properti yang mudah dan aman bersama kami. Kami memastikan setiap langkah transaksi Anda berlangsung dengan nyaman dan tanpa risiko.
                 </p>
               </div>
             </div>
@@ -158,45 +153,42 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
         <div class="row justify-content-between mb-5">
           <div class="col-lg-7 mb-5 mb-lg-0">
             <div class="img-about dots">
-              <img src="images/hero_bg_2.jpg" alt="Image" class="img-fluid" />
+              <img src="{{ asset('images/hero_bg_2.jpg') }}" alt="Image" class="img-fluid" />
             </div>
           </div>
           <div class="col-lg-4">
             <div class="d-flex feature-h">
               <span class="wrap-icon me-3">
-                <span class="icon-home2"></span>
+                <span class="icon-expand"></span>
               </span>
               <div class="feature-text">
-                <h3 class="heading">Quality properties</h3>
+                <h3 class="heading">Customizable Property Options</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Kami memahami bahwa setiap orang memiliki kebutuhan yang unik. Oleh karena itu, kami menawarkan fleksibilitas dalam pilihan properti. Apakah Anda mencari rumah pribadi atau ruang komersial, kami akan membantu menyesuaikan pilihan properti sesuai keinginan dan anggaran Anda.
                 </p>
               </div>
             </div>
 
             <div class="d-flex feature-h">
               <span class="wrap-icon me-3">
-                <span class="icon-person"></span>
+                <span class="icon-briefcase"></span>
               </span>
               <div class="feature-text">
-                <h3 class="heading">Top rated agents</h3>
+                <h3 class="heading">Experienced in the Industry</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Dengan bertahun-tahun pengalaman di industri properti, kami memiliki pengetahuan yang mendalam tentang pasar dan tren terbaru. Keahlian kami memungkinkan kami memberikan saran yang tepat dan membantu Anda membuat keputusan terbaik untuk masa depan Anda.
                 </p>
               </div>
             </div>
 
             <div class="d-flex feature-h">
               <span class="wrap-icon me-3">
-                <span class="icon-security"></span>
+                <span class="icon-cogs"></span>
               </span>
               <div class="feature-text">
-                <h3 class="heading">Easy and safe</h3>
+                <h3 class="heading">Comprehensive After-Sales Service</h3>
                 <p class="text-black-50">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nostrum iste.
+                  Layanan kami tidak berhenti setelah Anda membeli properti. Kami menyediakan layanan purna jual yang menyeluruh, mulai dari bantuan dalam pengurusan dokumen hingga konsultasi lanjutan. Kami ingin memastikan Anda mendapatkan pengalaman properti yang memuaskan dalam jangka panjang.
                 </p>
               </div>
             </div>
@@ -208,13 +200,13 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
       <div class="container">
         <div class="row">
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+            <img src="{{ asset('images/img_1.jpg') }}" alt="Image" class="img-fluid" />
           </div>
           <div class="col-md-4 mt-lg-5" data-aos="fade-up" data-aos-delay="100">
-            <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+            <img src="{{ asset('images/img_3.jpg') }}" alt="Image" class="img-fluid" />
           </div>
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
+            <img src="{{ asset('images/img_2.jpg') }}" alt="Image" class="img-fluid" />
           </div>
         </div>
         <div class="row section-counter mt-5">
@@ -295,7 +287,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_1-min.jpg"
+                  src="{{ asset('images/person_1-min.jpg') }}"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -329,7 +321,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_2-min.jpg"
+                  src="{{ asset('images/person_2-min.jpg') }}"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -363,7 +355,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_3-min.jpg"
+                  src="{{ asset('images/person_3-min.jpg') }}"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -397,7 +389,7 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_4.jpg"
+                  src="{{ asset('images/person_4-min.jpg') }}"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -539,18 +531,18 @@ Bergabunglah dengan kami dan temukan properti impian Anda hari ini!
     <!-- /.site-footer -->
 
     <!-- Preloader -->
-    <div id="overlayer"></div>
+    {{-- <div id="overlayer"></div>
     <div class="loader">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-    </div>
+    </div> --}}
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/tiny-slider.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/counter.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
   </body>
 </html>

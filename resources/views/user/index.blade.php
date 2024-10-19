@@ -926,8 +926,8 @@
               <h3>Links</h3>
               <ul class="list-unstyled links">
                 <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="/user/about">About us</a></li>
+                <li><a href="/user/contact">Contact us</a></li>
               </ul>
 
               <ul class="list-unstyled social">
