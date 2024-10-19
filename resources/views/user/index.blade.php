@@ -44,7 +44,7 @@
     </div>
 
     <!-- NAVBAR -->
-    @include('layout.nav')
+    @include('layouts.nav')
     
     <div class="hero">
       <div class="hero-slide">

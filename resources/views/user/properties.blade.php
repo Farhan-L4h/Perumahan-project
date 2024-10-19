@@ -44,7 +44,7 @@
     <div class="site-mobile-menu-body"></div>
   </div>
 
-  @include('layout.nav')
+  @include('layouts.nav')
 
   <div
     class="hero page-inner overlay"
