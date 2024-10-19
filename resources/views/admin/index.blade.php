@@ -181,7 +181,7 @@
             </a>
           </li>
           <li>
-            <a href="/admin/login">
+            <a href="/login">
               <span class="icon"><i class="mdi mdi-lock"></i></span>
               <span class="menu-item-label">Login</span>
             </a>
