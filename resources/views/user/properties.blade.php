@@ -84,7 +84,7 @@
             name="query"
             class="form-control me-2"
             placeholder="Search properties..."
-            aria-label="Search" required />
+            aria-label="Search"/>
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
