@@ -84,7 +84,7 @@
           </div>
           <div class="col-lg-6">
             <p class="text-black-50">
-              Selamat datang di Polinema Property, mitra terpercaya dalam menemukan hunian impian dan investasi yang menguntungkan. Kami memahami bahwa properti bukan hanya soal tempat tinggal, tetapi juga tentang masa depan yang lebih baik. Dengan pengalaman bertahun-tahun, kami menawarkan pilihan properti yang beragam, mulai dari rumah tinggal, apartemen modern, hingga lahan komersial yang strategis.
+              Selamat datang di Ra Property, mitra terpercaya dalam menemukan hunian impian dan investasi yang menguntungkan. Kami memahami bahwa properti bukan hanya soal tempat tinggal, tetapi juga tentang masa depan yang lebih baik. Dengan pengalaman bertahun-tahun, kami menawarkan pilihan properti yang beragam, mulai dari rumah tinggal, apartemen modern, hingga lahan komersial yang strategis.
             </p>
             <p class="text-black-50">
               Tim profesional kami siap membantu Anda menemukan properti yang sesuai dengan kebutuhan dan anggaran. Kami percaya bahwa setiap orang memiliki impian, dan tugas kami adalah memberikan solusi yang personal dan menyenangkan. Dengan pendekatan yang ramah dan transparan, kami memastikan proses pencarian properti Anda berjalan lancar dan bebas stres.
@@ -92,7 +92,7 @@
           </div>
           <div class="col-lg-6">
             <p class="text-black-50">
-              Visi kami adalah menjadi pemimpin di pasar properti dengan layanan berkualitas dan inovatif. Misi kami adalah membantu mewujudkan impian properti Anda dengan cara yang mudah dan cepat. Bergabunglah dengan Polinema Property dan temukan properti yang akan mengubah hidup Anda hari ini!
+              Visi kami adalah menjadi pemimpin di pasar properti dengan layanan berkualitas dan inovatif. Misi kami adalah membantu mewujudkan impian properti Anda dengan cara yang mudah dan cepat. Bergabunglah dengan Ra Property dan temukan properti yang akan mengubah hidup Anda hari ini!
             </p>
           </div>
         </div>

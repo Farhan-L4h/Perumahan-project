@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
-    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
@@ -22,12 +22,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}" />
 
-    <link rel="stylesheet" href="css/tiny-slider.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
     <title>
       Property &mdash; Free Bootstrap 5 Website Template by Untree.co
@@ -49,7 +49,7 @@
 
     <div
       class="hero page-inner overlay"
-      style="background-image: url('images/hero_bg_1.jpg')"
+      style="background-image: url('{{ asset('images/hero_bg_1.jpg') }}')"
     >
       <div class="container">
         <div class="row justify-content-center align-items-center">
@@ -62,7 +62,7 @@
               data-aos-delay="200"
             >
               <ol class="breadcrumb text-center justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="/user">Home</a></li>
                 <li
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
@@ -89,8 +89,8 @@
                 <i class="icon-room"></i>
                 <h4 class="mb-2">Location:</h4>
                 <p>
-                  43 Raymouth Rd. Baltemoer,<br />
-                  London 3910
+                  Jl. Raya Malang No. 43,<br />
+      Malang, Jawa Timur 65100
                 </p>
               </div>
 
@@ -106,7 +106,7 @@
               <div class="email mt-4">
                 <i class="icon-envelope"></i>
                 <h4 class="mb-2">Email:</h4>
-                <p>info@Untree.co</p>
+                <p>pemain@kamu.com</p>
               </div>
 
               <div class="phone mt-4">
@@ -212,8 +212,8 @@
               <h3>Links</h3>
               <ul class="list-unstyled links">
                 <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="/user/about">About us</a></li>
+                <li><a href="/user/contact">Contact us</a></li>
               </ul>
 
               <ul class="list-unstyled social">
@@ -273,18 +273,18 @@
     <!-- /.site-footer -->
 
     <!-- Preloader -->
-    <div id="overlayer"></div>
+    {{-- <div id="overlayer"></div>
     <div class="loader">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-    </div>
+    </div> --}}
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/tiny-slider.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/counter.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
   </body>
 </html>
