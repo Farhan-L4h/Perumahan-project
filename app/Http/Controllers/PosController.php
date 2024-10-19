@@ -6,8 +6,7 @@ use App\Models\agen;
 use App\Models\kategori;
 use App\Models\User;
 use App\Models\properties;
-
-
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 
 class PosController extends Controller
@@ -36,6 +35,18 @@ class PosController extends Controller
     public function contact()
     {
         return view('user/contact');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $datas = properties::where(function($q) use ($query) {
+            $columns = Schema::getColumnListing('properties');
+            foreach ($columns as $column) {
+                $q->orWhere($column, 'LIKE', "%{$query}%");
+            }
+        })->get();
+        return view('user/properties', compact('datas'));
     }
 
     //Admin

@@ -78,13 +78,13 @@
         <h2 class="font-weight-bold text-primary heading">
           Properties
         </h2>
-        <form action="#" method="GET" class="d-flex">
+        <form action="{{ route('user.search') }}" method="GET" class="d-flex">
           <input
             type="text"
             name="query"
             class="form-control me-2"
             placeholder="Search properties..."
-            aria-label="Search" />
+            aria-label="Search" required />
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
