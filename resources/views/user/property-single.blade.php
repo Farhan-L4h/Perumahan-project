@@ -102,6 +102,7 @@
           <p class="text-black-50">
             {{$data->deskripsi}}
           </p>
+          <a class="btn btn-primary" href="https://wa.me/{{$data->agen->contact}}">Contact Agen</a>
 
           <div class="d-block agent-box p-5">
             <div class="img mb-4">

@@ -55,23 +55,24 @@
         </p>
       </header>
       <div class="card-content">
-        <form method="get">
+        <form method="post" action="{{ route('login') }}">
+          @csrf
 
           <div class="field spaced">
-            <label class="label">Login</label>
+            <label class="label">Email</label>
             <div class="control icons-left">
-              <input class="input" type="text" name="login" placeholder="user@example.com" autocomplete="username">
+              <input class="input" type="email" name="email" placeholder="user@example.com" autocomplete="username" required>
               <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
             </div>
             <p class="help">
-              Please enter your login
+              Please enter your email
             </p>
           </div>
 
           <div class="field spaced">
             <label class="label">Password</label>
             <p class="control icons-left">
-              <input class="input" type="password" name="password" placeholder="Password" autocomplete="current-password">
+              <input class="input" type="password" name="password" placeholder="Password" autocomplete="current-password" required>
               <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
             </p>
             <p class="help">
@@ -81,7 +82,7 @@
 
           <div class="field spaced">
             <div class="control">
-              <label class="checkbox"><input type="checkbox" name="remember" value="1" checked>
+              <label class="checkbox"><input type="checkbox" name="remember" value="1">
                 <span class="check"></span>
                 <span class="control-label">Remember</span>
               </label>
@@ -97,7 +98,7 @@
               </button>
             </div>
             <div class="control">
-              <a href="/admin/index" class="button">
+              <a href="/" class="button">
                 Back
               </a>
             </div>

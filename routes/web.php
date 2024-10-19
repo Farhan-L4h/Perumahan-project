@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\PosController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::prefix('user')->group(function () {
-    Route::get('/', [PosController::class, 'index']);
+Route::prefix('user')->middleware(['auth', 'role:user|admin'])->group(function () {
+    Route::get('/', [PosController::class, 'index'])->name('user.index');
 
     Route::get('/property', [PosController::class, 'property']);
 
@@ -20,11 +24,7 @@ Route::prefix('user')->group(function () {
 });
 
 
-Route::get('/login', function () {
-    return view('admin/login');
-});
-
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [PosController::class, 'admin'])->name('admin.index');
     Route::post('/properties/store', [PosController::class, 'store'])->name('admin.properties.store');
     Route::get('/form', [PosController::class, 'form']);
@@ -61,3 +61,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/kategori/store', [PosController::class, 'store_kategori'])->name('admin.kategori.store');
     Route::get('/kategori/delete/{id}', [PosController::class, 'delete_kategori'])->name('admin.kategori.delete');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
