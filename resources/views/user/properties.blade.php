@@ -44,7 +44,7 @@
     <div class="site-mobile-menu-body"></div>
   </div>
 
-  @include('layout.nav')
+  @include('layouts.nav')
 
   <div
     class="hero page-inner overlay"
@@ -84,7 +84,7 @@
             name="query"
             class="form-control me-2"
             placeholder="Search properties..."
-            aria-label="Search" required />
+            aria-label="Search"/>
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
@@ -119,7 +119,7 @@
                 </div>
 
                 <a
-                  href="property-single.html"
+                  href="/user/property-single/{{$data->properties_id}}"
                   class="btn btn-primary py-2 px-3">See details</a>
               </div>
             </div>

@@ -3,39 +3,15 @@
 use App\Http\Controllers\PosController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/home', function () {
-//     return view('user/index');
-// });
-
-// // Properties
-// Route::get('/property', function () {
-//     return view('user/properties');
-// });
-// Route::get('/property-1', function () {
-//     return view('user/property-single');
-// });
-
-// // service
-// Route::get('/services', function () {
-//     return view('user/services');
-// });
-
-// // about
-// Route::get('/about', function () {
-//     return view('user/about');
-// });
-
-// // about
-// Route::get('/contact', function () {
-//     return view('user/contact');
-// });
-
 
 Route::prefix('user')->group(function () {
     Route::get('/', [PosController::class, 'index']);
 
     Route::get('/property', [PosController::class, 'property']);
+
     Route::get('/property/{id}', [PosController::class, 'property_single']);
+    Route::get('/property-single/{id}', [PosController::class, 'property_single']);
+    
     Route::get('/services', [PosController::class, 'services']);
     Route::get('/services/{id}', [PosController::class, 'servis']);
     Route::get('/about', [PosController::class, 'about']);
@@ -56,17 +32,32 @@ Route::prefix('admin')->group(function () {
     Route::get('/profile', [PosController::class, 'profile_admin']);
 
     // Properties
-    Route::get('/properties/show/{id}', [PosController::class, 'show_pro']);
-    Route::get('/properties/edit/{id}', [PosController::class, 'edit_pro']);
-    Route::get('/properties/delete/{id}', [PosController::class, 'delete_pro']);
+    Route::get('/properties/show/{id}', [PosController::class, 'show_pro'])->name('admin.properties.show');
+    Route::get('/properties/edit/{id}', [PosController::class, 'edit_pro'])->name('admin.properties.edit');
+    Route::put('/properties/update/{id}', [PosController::class, 'update_pro'])->name('admin.properties.update');
+    Route::get('/properties/delete/{id}', [PosController::class, 'delete_pro'])->name('admin.properties.delete');
+    Route::get('/properties', [PosController::class, 'properties'])->name('admin.properties.index');
 
     // Agent
-    Route::get('/agent/show/{id}', [PosController::class, 'show_agent']);
-    Route::get('/agent/edit/{id}', [PosController::class, 'edit_agent']);
-    Route::get('/agent/delete/{id}', [PosController::class, 'delete_agent']);
+    Route::get('/agent', [PosController::class, 'agent'])->name('admin.agent.index');
+    Route::get('/agent/show/{id}', [PosController::class, 'show_agent'])->name('admin.agent.show');
+    Route::get('/agent/edit/{id}', [PosController::class, 'edit_agent'])->name('admin.agent.edit');
+    Route::post('/agent/update/{id}', [PosController::class, 'update_agent'])->name('admin.agent.update');
+    Route::get('/agent/delete/{id}', [PosController::class, 'delete_agent'])->name('admin.agent.delete');
 
     // kategori
     Route::get('/kategori/show/{id}', [PosController::class, 'show_kategori']);
-    Route::get('/kategori/edit/{id}', [PosController::class, 'edit_kategori']);
-    Route::get('/kategori/delete/{id}', [PosController::class, 'delete_kategori']);
+    Route::get('/kategori/edit/{id}', [PosController::class, 'edit_kategori'])->name('admin.kategori.edit');
+    Route::get('/kategori/delete/{id}', [PosController::class, 'delete_kategori'])->name('admin.kategori.delete');
+
+    // Users
+    Route::get('/users', [PosController::class, 'users'])->name('admin.users.index');
+    Route::get('/users/edit/{id}', [PosController::class, 'edit_users'])->name('admin.users.edit');
+    Route::put('/users/update/{id}', [PosController::class, 'update_users'])->name('admin.users.update');
+    Route::get('/users/delete/{id}', [PosController::class, 'delete_users'])->name('admin.users.delete');
+
+    // Kategori
+    Route::get('/kategori/create', [PosController::class, 'create_kategori'])->name('admin.kategori.create');
+    Route::post('/kategori/store', [PosController::class, 'store_kategori'])->name('admin.kategori.store');
+    Route::get('/kategori/delete/{id}', [PosController::class, 'delete_kategori'])->name('admin.kategori.delete');
 });
