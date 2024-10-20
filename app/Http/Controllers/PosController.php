@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\agen;
 use App\Models\kategori;
+use App\Models\contact;
 use App\Models\User;
 use App\Models\properties;
 use Illuminate\Support\Facades\Schema;
@@ -46,6 +47,31 @@ class PosController extends Controller
     {
         return view('user/contact');
     }
+
+    public function storeContact(Request $request)
+    {
+        // Validasi input dari request
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255', // Validasi email
+            'contact' => 'required|integer|digits_between:1,15', // Ubah integer menjadi string untuk nomor telepon
+            'deskripsi' => 'required|string|max:255',
+            // Tambahkan validasi lain jika diperlukan
+        ]);
+    
+        // Simpan data kontak ke dalam database
+        Contact::create([
+            'user_id' => auth()->id(), // Pastikan pengguna telah terautentikasi
+            'username' => $request->username,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'deskripsi' => $request->deskripsi,
+        ]);
+    
+        // Kembalikan response sukses atau redirect
+        return redirect()->route('contact.submit')->with('success', 'Kontak berhasil disimpan!');
+    }
+    
 
     public function search(Request $request)
     {

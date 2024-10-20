@@ -8,7 +8,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::prefix('user')->middleware(['auth', 'role:user|admin'])->group(function () {
+Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
     Route::get('/', [PosController::class, 'index'])->name('user.index');
 
     Route::get('/property', [PosController::class, 'property']);
@@ -20,6 +20,8 @@ Route::prefix('user')->middleware(['auth', 'role:user|admin'])->group(function (
     Route::get('/services/{id}', [PosController::class, 'servis']);
     Route::get('/about', [PosController::class, 'about']);
     Route::get('/contact', [PosController::class, 'contact']);
+    // Route::post('/contact', [PosController::class, 'storeContact'])->name('contact.store');
+    Route::post('/contact', [PosController::class, 'storeContact'])->name('contact.submit');
     Route::get('/search', [PosController::class, 'search'])->name('user.search');
 });
 

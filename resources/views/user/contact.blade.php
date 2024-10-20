@@ -76,6 +76,12 @@
       </div>
     </div>
 
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif 
+
     <div class="section">
       <div class="container">
         <div class="row">
@@ -116,54 +122,31 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-            <form action="#">
-              <div class="row">
-                <div class="col-6 mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div class="col-6 mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Subject"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <textarea
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="7"
-                    class="form-control"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
 
-                <div class="col-12">
-                  <input
-                    type="submit"
-                    value="Send Message"
-                    class="btn btn-primary"
-                  />
-                </div>
+
+        
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <form action="{{ route('contact.submit') }}" method="POST">
+              @csrf
+              <div class="row">
+                  <div class="col-6 mb-3">
+                      <input type="text" name="username" class="form-control" placeholder="Your Username" required />
+                  </div>
+                  <div class="col-12 mb-3">
+                      <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+                  </div>
+                  <div class="col-12 mb-3">
+                      <input type="text" name="contact" class="form-control" placeholder="Your Contact" required />
+                  </div>
+                  <div class="col-12 mb-3">
+                      <textarea name="deskripsi" cols="30" rows="7" class="form-control" placeholder="Deskripsi" required> </textarea>
+                  </div>
+                  <div class="col-12">
+                      <input type="submit" value="Send Message" class="btn btn-primary" />
+                  </div>
               </div>
-            </form>
-          </div>
-        </div>
+          </form>
       </div>
-    </div>
     <!-- /.untree_co-section -->
 
     <div class="site-footer">

@@ -12,10 +12,11 @@ class contact extends Model
     protected $table = 'contacts';
 
     protected $fillable = [
-        'nama',
-        'email',
-        'telepon',
-        'pesan',
+        'user_id', 
+        'username', 
+        'email', 
+        'contact', 
+        'deskripsi', 
     ];
 
     public function user()
