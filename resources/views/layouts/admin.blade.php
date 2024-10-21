@@ -130,7 +130,13 @@
           <li class="--set-active-forms-html">
             <a href="/admin/form">
               <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-              <span class="menu-item-label">Forms</span>
+              <span class="menu-item-label">Forms - Properties </span>
+            </a>
+          </li>
+          <li class="--set-active-forms-html">
+            <a href="#">
+              <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+              <span class="menu-item-label">Forms - Agen</span>
             </a>
           </li>
           <li class="--set-active-profile-html">

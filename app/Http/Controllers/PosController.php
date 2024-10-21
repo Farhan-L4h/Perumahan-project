@@ -255,6 +255,13 @@ class PosController extends Controller
         return view('admin.agent.index', compact('agens'));
     }
 
+    public function form_agent()
+    {
+        $agens = agen::all();
+        $kategoris = kategori::all();
+        return view('admin.agent.forms', compact('agens', 'kategoris'));
+    }
+
     public function show_agent(string $id)
     {
         $agent = Agen::findOrFail($id);
@@ -273,6 +280,8 @@ class PosController extends Controller
         $agent->delete();
         return redirect()->route('admin.agent.agent')->with('success', 'Agent berhasil dihapus!');
     }
+
+
 
 
     // Users
