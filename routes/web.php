@@ -15,7 +15,7 @@ Route::prefix('user')->group(function () {
 
     Route::get('/property/{id}', [PosController::class, 'property_single']);
     Route::get('/property-single/{id}', [PosController::class, 'property_single']);
-    
+
     Route::get('/services', [PosController::class, 'services']);
     Route::get('/services/{id}', [PosController::class, 'servis']);
     Route::get('/about', [PosController::class, 'about']);
@@ -25,12 +25,17 @@ Route::prefix('user')->group(function () {
     Route::get('/search', [PosController::class, 'search'])->name('user.search');
 });
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('home');
+})->name('logout');
+
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [PosController::class, 'admin'])->name('admin.index');
     Route::post('/properties/store', [PosController::class, 'store'])->name('admin.properties.store');
     Route::get('/form', [PosController::class, 'form']);
-    Route::get('/tables', [PosController::class, 'tables']);
+    Route::get('/tables', [PosController::class, 'tables'])->name('admin.tables');
     Route::get('/profile', [PosController::class, 'profile_admin']);
 
     // Properties

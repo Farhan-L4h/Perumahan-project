@@ -244,7 +244,7 @@ class PosController extends Controller
         $property = Properties::findOrFail($id);
         \Illuminate\Support\Facades\Storage::delete('public/properties/' . $property->image);
         $property->delete();
-        return redirect()->route('admin.properties.tables')->with('success', 'Property berhasil dihapus!');
+        return redirect()->route('admin.tables')->with('success', 'Property berhasil dihapus!');
     }
 
 
@@ -254,7 +254,7 @@ class PosController extends Controller
         $agens = agen::all();
         return view('admin.agent.index', compact('agens'));
     }
-
+    
     public function show_agent(string $id)
     {
         $agent = Agen::findOrFail($id);

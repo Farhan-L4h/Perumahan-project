@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/user.index';
 
     /**
      * Create a new controller instance.
@@ -55,7 +55,7 @@ class LoginController extends Controller
             if (auth()->user()->level == 'admin') {
                 return redirect()->route('admin.index');
             } else {
-                return redirect()->back()->with('error', 'Email-Address and Password are wrong.')->withInput();
+                return redirect()->route('home');
             }
         } else {
             return redirect()->back()->with('error', 'Email-Address and Password are wrong.')->withInput();
