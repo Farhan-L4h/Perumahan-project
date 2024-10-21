@@ -51,16 +51,14 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt($input)) {
-            $user = auth()->user();
-
-            if ($user->role == 'admin') {
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
+            if (auth()->user()->level == 'admin') {
                 return redirect()->route('admin.index');
-            } elseif ($user->role == 'user') {
-                return redirect()->route('user.index');
             } else {
-                return back()->with('error', 'Email-Address and Password are wrong.')->withInput();
+                return redirect()->back()->with('error', 'Email-Address and Password are wrong.')->withInput();
             }
+        } else {
+            return redirect()->back()->with('error', 'Email-Address and Password are wrong.')->withInput();
         }
     }
 }

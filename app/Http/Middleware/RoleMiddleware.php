@@ -20,6 +20,6 @@ class RoleMiddleware
             return $next($request);
         }
 
-        return redirect()->back()->with('error', 'kamu tidak memiliki akses');
+        return redirect()->route('login')->with('error', 'kamu tidak memiliki akses');
     }
 }

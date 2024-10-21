@@ -8,7 +8,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
+Route::prefix('user')->group(function () {
     Route::get('/', [PosController::class, 'index'])->name('user.index');
 
     Route::get('/property', [PosController::class, 'property']);
