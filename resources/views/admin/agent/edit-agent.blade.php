@@ -1,43 +1,140 @@
+{{-- @extends('layouts.admin')
+
+@section('content')
+<div class="container">
+    <h1>Edit Agent</h1>
+    @if ($errors->any())
+    <div class="notification is-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{ route('admin.agent.update', $agent->agen_id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+        <div class="field">
+            <label class="label">Unggah Foto</label>
+            <div class="control icons-left">
+                <input class="input" type="file" name="image" placeholder="Unggah Foto" required>
+                <span class="icon left"><i class="mdi mdi-camera"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Nama</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="name" placeholder="Nama" value="{{ $agent->name }}" required>
+                <span class="icon left"><i class="mdi mdi-account"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Kontak</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="contact" placeholder="Kontak" value="{{ $agent->contact }}" required>
+                <span class="icon left"><i class="mdi mdi-phone"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Alamat</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="alamat" placeholder="Alamat" value="{{ $agent->alamat }}" required>
+                <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Perusahaan</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="company" placeholder="Perusahaan" value="{{ $agent->company }}" required>
+                <span class="icon left"><i class="mdi mdi-office-building"></i></span>
+            </div>
+        </div>
+
+        <div class="field grouped">
+            <div class="control">
+                <button type="submit" class="button green">Perbarui Agen</button>
+            </div>
+            <div class="control">
+                <button type="reset" class="button red">Atur Ulang</button>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection --}}
+
 @extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h1>Edit Agent</h1>
-    <form action="{{ route('admin.agents.update', $agent->id) }}" method="POST">
+    @if ($errors->any())
+    <div class="notification is-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{ route('admin.agent.update', $agent->agen_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        
-        <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" class="form-control" id="image" name="image" value="{{ $agent->image }}" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $agent->name }}" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $agent->name }}" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="contact">Contact</label>
-            <input type="text" class="form-control" id="contact" name="contact" value="{{ $agent->contact }}" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $agent->alamat }}" required>
+
+        <div class="field">
+            <label class="label">Unggah Foto</label>
+            <div class="control icons-left">
+                <input class="input" type="file" name="image" placeholder="Unggah Foto">
+                <span class="icon left"><i class="mdi mdi-camera"></i></span>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" class="form-control" id="company" name="company" value="{{ $agent->company }}" required>
+        <div class="field">
+            <label class="label">Nama</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="name" placeholder="Nama" value="{{ $agent->name }}" required>
+                <span class="icon left"><i class="mdi mdi-account"></i></span>
+            </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Update Agent</button>
+
+        <div class="field">
+            <label class="label">Kontak</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="contact" placeholder="Kontak" value="{{ $agent->contact }}" required>
+                <span class="icon left"><i class="mdi mdi-phone"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Alamat</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="alamat" placeholder="Alamat" value="{{ $agent->alamat }}" required>
+                <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Perusahaan</label>
+            <div class="control icons-left">
+                <input class="input" type="text" name="company" placeholder="Perusahaan" value="{{ $agent->company }}" required>
+                <span class="icon left"><i class="mdi mdi-office-building"></i></span>
+            </div>
+        </div>
+
+        <div class="field grouped">
+            <div class="control">
+                <button type="submit" class="button green">Perbarui Agen</button>
+            </div>
+            <div class="control">
+                <button type="reset" class="button red">Atur Ulang</button>
+            </div>
+        </div>
     </form>
 </div>
 @endsection
+

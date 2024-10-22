@@ -18,7 +18,7 @@ class agen extends Model
         'name',
         'username',
         'contact',
-        'company',
+        'company',  
         'alamat'
     ];
 
@@ -26,4 +26,9 @@ class agen extends Model
     {
         return $this->hasMany(properties::class, 'agen_id');
     }
+
+    // public function getImageUrlAttribute()
+    // {
+    //     return asset('storage/' . $this->image);
+    // }
 }

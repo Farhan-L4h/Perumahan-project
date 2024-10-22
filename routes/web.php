@@ -47,9 +47,12 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     // Agent
     Route::get('/agent', [PosController::class, 'agent'])->name('admin.agent.index');
+    Route::get('/agent/create', [PosController::class, 'create'])->name('admin.agent.create');
+    Route::post('/agent/store', [PosController::class, 'store_agent'])->name('admin.agents.store');
+    Route::post('/agent/create', [PosController::class, 'create']);
     Route::get('/agent/show/{id}', [PosController::class, 'show_agent'])->name('admin.agent.show');
-    Route::get('/agent/edit/{id}', [PosController::class, 'edit_agent'])->name('admin.agent.edit');
-    Route::post('/agent/update/{id}', [PosController::class, 'update_agent'])->name('admin.agent.update');
+    Route::get('/agent/edit/{id}', [PosController::class, 'edit_agent'])->name('admin.agent.update');
+    Route::put('/agent/update/{id}', [PosController::class, 'update'])->name('admin.agent.update');
     Route::get('/agent/delete/{id}', [PosController::class, 'delete_agent'])->name('admin.agent.delete');
 
     // kategori

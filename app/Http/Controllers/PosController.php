@@ -54,7 +54,7 @@ class PosController extends Controller
         $request->validate([
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255', // Validasi email
-            'contact' => 'required|integer|digits_between:1,15', // Ubah integer menjadi string untuk nomor telepon
+            'contact' => 'required|integer|max:12', // Ubah integer menjadi string untuk nomor telepon
             'deskripsi' => 'required|string|max:255',
             // Tambahkan validasi lain jika diperlukan
         ]);
@@ -254,25 +254,156 @@ class PosController extends Controller
         $agens = agen::all();
         return view('admin.agent.index', compact('agens'));
     }
+
+    public function store_agent(Request $request)
+    {
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
+            'name' => 'required|string|max:255',
+            'username' => 'required|string',
+            'contact' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+        ]);
+
+// Handling file upload
+$imagePath = null; // Inisialisasi variabel untuk gambar
+
+if ($request->hasFile('image')) {
+    // Upload gambar
+    $imagePath = $request->file('image')->store('public/agens');
+}
+
+// Simpan data agen ke dalam database
+agen::create([
+    'image' => $imagePath ? basename($imagePath) : null, // Simpan nama file gambar
+    'name' => $request->name,
+    'username' => $request->username,
+    'contact' => $request->contact,
+    'company' => $request->company,
+    'alamat' => $request->alamat,
+]);
+
+        return redirect()->route('admin.agent.index')->with('success', 'Agent added successfully.');
+    }
+
+    // Method to show the agent form
+    public function create()
+    {
+        return view('admin.agent.create-agent');
+    }
     
     public function show_agent(string $id)
     {
         $agent = Agen::findOrFail($id);
-        return view('admin.agent.show_agent', compact('agent'));
+        return view('admin.agent.show-agent', compact('agent'));
     }
 
     public function edit_agent(string $id)
     {
         $agent = Agen::findOrFail($id);
-        return view('admin.agent.edit_agent', compact('agent'));
+        return view('admin.agent.edit-agent', compact('agent'));
     }
 
-    public function delete_agent(string $id)
-    {
-        $agent = Agen::findOrFail($id);
-        $agent->delete();
-        return redirect()->route('admin.agent.agent')->with('success', 'Agent berhasil dihapus!');
+    // public function update(Request $request, $id)
+    // {
+    //     // Validasi data yang diterima
+    //     $request->validate([
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //         'name' => 'required|string|max:255',
+    //         'contact' => 'required|string|max:255',
+    //         'alamat' => 'required|string|max:255',
+    //         'company' => 'required|string|max:255',
+    //     ]);
+
+    //     // Temukan agen berdasarkan ID
+    //     $agent = agen::findOrFail($id);
+
+    //     // Jika ada gambar baru yang diunggah, proses unggah gambar
+    //     if ($request->hasFile('image')) {
+    //         // Hapus gambar lama
+    //         \Illuminate\Support\Facades\Storage::delete('public/agens/' . $agent->image);
+
+    //         // Upload gambar baru
+    //         $imagePath = $request->file('image');
+    //         $imagePath->storeAs('public/properties', $imagePath->hashName());
+
+    //         // Simpan gambar baru dan ambil path-nya
+    //         // $imagePath = $request->file('image')->store('images/agens', 'public');
+    //         // $agent->image = $imagePath;
+    //     }
+
+    //     // Perbarui data agen
+    //     $agent->name = $request->name;
+    //     $agent->contact = $request->contact;
+    //     $agent->alamat = $request->alamat;
+    //     $agent->company = $request->company;
+
+    //     // Simpan perubahan
+    //     $agent->save();
+
+    //     // Redirect ke halaman yang sesuai dengan pesan sukses
+    //     return redirect()->route('admin.agent.index')->with('success', 'Agen berhasil diperbarui!');
+    // }
+
+    public function update(Request $request, $id)
+{
+    // Validasi data yang diterima
+    $request->validate([
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'name' => 'required|string|max:255',
+        'contact' => 'required|string|max:255',
+        'alamat' => 'required|string|max:255',
+        'company' => 'required|string|max:255',
+    ]);
+
+    // Temukan agen berdasarkan ID
+    $agent = agen::findOrFail($id);
+
+    // Jika ada gambar baru yang diunggah, proses unggah gambar
+    if ($request->hasFile('image')) {
+        // Hapus gambar lama jika ada
+        if ($agent->image) {
+            \Illuminate\Support\Facades\Storage::delete('public/agens/' . $agent->image);
+        }
+
+        // Upload gambar baru dan ambil path-nya
+        $imagePath = $request->file('image')->store('public/agens');
+
+        // Simpan nama file gambar baru ke dalam model
+        $agent->image = basename($imagePath); // Mengambil hanya nama file
     }
+
+    // Perbarui data agen
+    $agent->name = $request->name;
+    $agent->contact = $request->contact;
+    $agent->alamat = $request->alamat;
+    $agent->company = $request->company;
+
+    // Simpan perubahan
+    $agent->save();
+
+    // Redirect ke halaman yang sesuai dengan pesan sukses
+    return redirect()->route('admin.agent.index')->with('success', 'Agen berhasil diperbarui!');
+}
+
+
+public function delete_agent(string $id)
+{
+    // Temukan agen berdasarkan ID
+    $agent = agen::findOrFail($id);
+
+    // Hapus gambar dari storage jika ada
+    if ($agent->image) {
+        \Illuminate\Support\Facades\Storage::delete('public/agens/' . $agent->image);
+    }
+
+    // Hapus agen
+    $agent->delete();
+
+    // Redirect ke daftar agen dengan pesan sukses
+    return redirect()->route('admin.agent.index')->with('success', 'Agent berhasil dihapus!');
+}
 
 
     // Users

@@ -1,49 +1,4 @@
-{{-- @extends('layouts.admin')
-
-@section('content')
-<div class="container">
-    <h1>Edit Agent</h1>
-    <form action="{{ route('admin.agents.store') }}" method="POST">
-        @csrf
-        @method('PUT')
-        
-        <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" class="form-control" id="image" name="image" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="contact">Contact</label>
-            <input type="text" class="form-control" id="contact" name="contact" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" id="alamat" name="alamat" required>
-        </div>
-
-        <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" class="form-control" id="company" name="company" required>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Update Agent</button>
-    </form>
-</div>
-@endsection --}}
-
-
-<body>
+{{-- <body>
 
     <div id="app">
       @extends('layouts.admin')
@@ -80,7 +35,7 @@
               </ul>
             </div>
             @endif
-            <form method="Post" action="{{ route('admin.agents.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('admin.agents.store') }}" enctype="multipart/form-data">
               @csrf
     
               <div class="field">
@@ -126,7 +81,7 @@
               <div class="field">
                 <label class="label">Address</label>
                 <div class="control icons-left">
-                  <input class="input" type="text" name="alamat" placeholder="alamat" value="{{ old('alamat') }}">
+                  <input class="input" type="text" name="address" placeholder="Address" value="{{ old('address') }}">
                   <span class="icon left"><i class="mdi mdi-map-marker"></i></span>
                 </div>
               </div>
@@ -153,4 +108,4 @@
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     
     </body>
-    
+     --}}

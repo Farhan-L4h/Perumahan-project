@@ -18,7 +18,7 @@
 <section class="section main-section shadow-sm card shadow-md" style="margin-top: 10px; margin-bottom: 10px;">
   <div class="flex justify-between">
     <h1 class="title"><Strong>Data Agent</Strong></h1>
-    <a href="/admin/form" class="button green"><span class="mdi mdi-plus"></span> Tambah Agent</a>
+    <a href="/admin/agent/create" class="button green"><span class="mdi mdi-plus"></span> Tambah Agent</a>
   </div>
   <table class="table table-striped">
     <thead>
@@ -39,7 +39,7 @@
       <tr>
         <td>{{$agen->agen_id}}</td>
         <td>
-          <img src="{{ $agen->image ? asset('storage/agens/' . $agen->image) : asset('/images/default-user.png') }}" alt="Image" style="width: 50px; height: auto;">
+          <img src="{{ asset('storage/agens/' . $agen->image) }}" alt="Image" style="width: 50px; height: auto;">
         </td>
         <td>{{$agen->name}}</td>
         <td>{{$agen->username}}</td>
@@ -47,9 +47,9 @@
         <td>{{$agen->company}}</td>
         <td>{{$agen->alamat}}</td>
         <td>
-          <a href="/admin/agens/edit/{{$agen->agen_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
-          <a href="/admin/agens/delete/{{$agen->agen_id}}" class="button red" onclick="return confirm('Are you sure you want to delete this agent?')"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
-          <a href="/admin/agens/show/{{$agen->agen_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
+          <a href="/admin/agent/edit/{{$agen->agen_id}}" class="button blue"><span class="mdi mdi-pencil" style="padding: 0.5px;"></span></a>
+          <a href="/admin/agent/delete/{{$agen->agen_id}}" class="button red" onclick="return confirm('Are you sure you want to delete this agent?')"><span class="mdi mdi-delete-empty" style="padding: 0.5px;"></span></span></a>
+          <a href="/admin/agent/show/{{$agen->agen_id}}" class="button green"><span class="mdi mdi-eye-circle" style="padding: 0.5px;"></span></span></span></a>
         </td>
       </tr>
       @endforeach
