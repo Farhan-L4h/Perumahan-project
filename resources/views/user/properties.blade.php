@@ -114,7 +114,7 @@
                   </span>
                   <span class="d-block d-flex align-items-center">
                     <span class="icon-bath me-2"></span>
-                    <span class="caption">2 baths</span>
+                    <span class="caption">{{$data-> kamar_mandi}}</span>
                   </span>
                 </div>
 

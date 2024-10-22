@@ -311,7 +311,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- .item -->
+                <!-- .item -->                
 
                 <div class="property-item">
                   <a href="{{ asset('property-single.html') }}" class="img">

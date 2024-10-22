@@ -107,7 +107,7 @@
           <div class="d-block agent-box p-5">
             <div class="img mb-4">
               <img
-                src="{{ asset('images/person_2-min.jpg') }}"
+                src="{{ asset('storage/agens/'. $data-> agen->image) }}"
                 alt="Image"
                 class="img-fluid" />
             </div>
@@ -118,9 +118,9 @@
                 <i class="icon-map-marker"></i> {{$data->agen->alamat}},
                 <i class="icon-phone"></i> {{$data->agen->contact}}
               </div>
-              <p class="help">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque molestias, commodi vitae quos repudiandae, expedita ad nostrum delectus, ex officiis unde blanditiis nemo laboriosam quod veniam ut earum! Quisquam?
-              </p>
+              
+              <h3 class="mb-2">{{$data->agen->company}}</h3>
+              
               <ul class="list-unstyled social dark-hover d-flex">
                 <li class="me-1">
                   <a href="#"><span class="icon-instagram"></span></a>
