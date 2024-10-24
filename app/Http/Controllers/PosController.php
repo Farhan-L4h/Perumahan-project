@@ -17,7 +17,7 @@ class PosController extends Controller
      */
     public function index()
     {
-        $datas = properties::all();
+        $datas = properties::paginate(5);
         return view('user/index', compact('datas'));
     }
 
@@ -458,5 +458,13 @@ public function delete_agent(string $id)
         $kategori = Kategori::findOrFail($id);
         $kategori->delete();
         return redirect()->route('admin.index')->with('success', 'Kategori berhasil dihapus!');
+    }
+
+    function update_kategori(Request $request, string $id   )
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+        return redirect()->route('admin.index')->with('success', 'Kategori berhasil diupdate!');
     }
 }
