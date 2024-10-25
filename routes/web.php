@@ -19,9 +19,9 @@ Route::prefix('user')->group(function () {
     Route::get('/services', [PosController::class, 'services']);
     Route::get('/services/{id}', [PosController::class, 'servis']);
     Route::get('/about', [PosController::class, 'about']);
-    Route::get('/contact', [PosController::class, 'contact']);
+    Route::get('/contact', [PosController::class, 'contact'])->name('user.contact');
     // Route::post('/contact', [PosController::class, 'storeContact'])->name('contact.store');
-    Route::post('/contact', [PosController::class, 'storeContact'])->name('contact.submit');
+    Route::post('/contact', [PosController::class, 'storeContact'])->name('user.contact.submit');
     Route::get('/search', [PosController::class, 'search'])->name('user.search');
 });
 
@@ -70,6 +70,11 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/kategori/create', [PosController::class, 'create_kategori'])->name('admin.kategori.create');
     Route::post('/kategori/store', [PosController::class, 'store_kategori'])->name('admin.kategori.store');
     Route::get('/kategori/delete/{id}', [PosController::class, 'delete_kategori'])->name('admin.kategori.delete');
+
+    // Contact
+    Route::get('/contact', [PosController::class, 'contact_user'])->name('admin.contact.index');
+    Route::get('/contact/show/{id}', [PosController::class, 'show_contact'])->name('admin.contact.show');
+    Route::get('/contact/delete/{id}', [PosController::class, 'delete_contact'])->name('admin.contact.delete');
 });
 
 Auth::routes();

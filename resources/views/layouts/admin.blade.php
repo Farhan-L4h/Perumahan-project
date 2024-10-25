@@ -151,6 +151,13 @@
             <span class="menu-item-label">Users</span>
           </a>
         </li>
+
+        <li>
+          <a href="/admin/contact">
+            <span class="icon"><i class="mdi mdi-email"></i></span>
+            <span class="menu-item-label">Contact</span>
+          </a>
+        </li>
       </ul>
 
 

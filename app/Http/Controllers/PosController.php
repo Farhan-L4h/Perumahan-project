@@ -54,14 +54,13 @@ class PosController extends Controller
         $request->validate([
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255', // Validasi email
-            'contact' => 'required|integer|max:12', // Ubah integer menjadi string untuk nomor telepon
+            'contact' => 'required|string|max:15', // Ubah integer menjadi string untuk nomor telepon
             'deskripsi' => 'required|string|max:255',
             // Tambahkan validasi lain jika diperlukan
         ]);
     
         // Simpan data kontak ke dalam database
         Contact::create([
-            'user_id' => auth()->id(), // Pastikan pengguna telah terautentikasi
             'username' => $request->username,
             'email' => $request->email,
             'contact' => $request->contact,
@@ -69,9 +68,10 @@ class PosController extends Controller
         ]);
     
         // Kembalikan response sukses atau redirect
-        return redirect()->route('contact.submit')->with('success', 'Kontak berhasil disimpan!');
+        return redirect()->route('user.contact')->with('success', 'Kontak berhasil disimpan!');
     }
-    
+
+       
 
     public function search(Request $request)
     {
@@ -466,5 +466,25 @@ public function delete_agent(string $id)
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->save();
         return redirect()->route('admin.index')->with('success', 'Kategori berhasil diupdate!');
+    }
+
+    // Contact
+    public function contact_user()
+    {
+        $datas = Contact::all();
+        return view('admin.contact.contact-user', compact('datas'));
+    }
+
+    public function show_contact(string $id)
+    {
+        $contact = Contact::findOrFail($id);
+        return view('admin.contact.contact-show', compact('contact'));
+    }
+
+    public function delete_contact(string $id)
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+        return redirect()->route('admin.contact.index')->with('success', 'Contact berhasil dihapus!');
     }
 }

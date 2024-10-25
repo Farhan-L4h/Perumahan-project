@@ -126,7 +126,7 @@
 
         
         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-          <form action="{{ route('contact.submit') }}" method="POST">
+          <form action="{{ route('user.contact.submit') }}" method="POST">
               @csrf
               <div class="row">
                   <div class="col-6 mb-3">
